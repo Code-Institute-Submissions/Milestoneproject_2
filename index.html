@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="description" content="This is a website where you can check music analysis.">
+	<meta name="author" content="Asuna Masuda">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+	<!-- Google Fonts & Fontawesome -->
+	<link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
+		integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	<link
+		href="https://fonts.googleapis.com/css?family=Dancing+Script|Fredericka+the+Great|Girassol|IM+Fell+Double+Pica&display=swap"
+		rel="stylesheet">
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<!-- Custom CSS sheet -->
+	<link href="assets/css/style.css" rel="stylesheet">
+
+	<!-- Title Icon -->
+	<link rel="icon" href="placeholder" type="image/x-icon">
+
+	<title>Music Analysis</title>
+
+</head>
+
+<body data-spy="scroll">
+
+	<!-- Navigation bar-->
+	<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+		<div class="container">
+			<a class="navbar-brand" href="#">Spotify Music Analysis</a>
+			<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars"></i>
+      </button>
+			<div class="navbar-collapse collapse" id="navbarResponsive">
+				<ul class="navbar-nav text-uppercase ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#aboutme">Music Analysis</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#history">How this works</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<!--Music Analysis Section -->
+	<section class="aboutpage page-section" id="aboutme">
+		<div class="background">
+			<div class="container_c">
+				<div class="about-background">
+					<!--About Section Heading -->
+                    <div class="text-center ">
+					<h2 class="section-heading">Search Songs</h2>
+                    <input type="text" id="sp-id" value="Type Name of Songs" oninput="fetchSpotifyInformation()">
+                    </div>
+					<!--About Section Content -->
+                    <div id="gh-user-data"></div>
+                    <div id="gh-repo-data"></div>
+					<div class="row">
+						<div class="col-lg-4 ml-auto">
+						</div>
+						<div class="col-lg-4 mr-auto">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-md-4">
+					<span class="copyright">© 2020 Asuna Masuda</span>
+				</div>
+				<div class="col-md-4">
+					<ul class="list-inline social-buttons">
+
+						<li class="list-inline-item">
+							<a href="https://www.linkedin.com/in/asuna-fitzpatrick-masuda" target=”_blank”>
+								<i class="fab fa-linkedin-in font"></i>
+							</a>
+						</li>
+						<li class="list-inline-item font">
+							<a href="https://github.com/AsunaMasuda" target=”_blank”>
+								<i class="fab fa-github font"></i>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+			</div>
+		</div>
+	</footer>
+
+    
+    <!-- JavaScript for tooltip-->
+	<script>
+		$(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+    <!-- JavaScript for Spotify-->
+    <script type="text/javaScript" src="assets/js/spotify.js"></script>
+
+</body>
+
+</html>
