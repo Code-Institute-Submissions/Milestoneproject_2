@@ -178,21 +178,11 @@ img::-moz-selection {
     }
 }
 
-/*-------------------------------------------- About page */
+
+/*-------------------------------------------- Main Page */
 
 #aboutme h2 {
-    color: #164e73;
-}
-
-#aboutme .background {
-    background-image: url(../images/blommor.jpg);
-    background-size: cover;
-    z-index: 100;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin-bottom: 0px;
-}
+    color: #164e73}
 
 .about-background {
     background-color: rgba(255, 255, 255, 0.95);
@@ -212,6 +202,18 @@ img::-moz-selection {
     border-radius: 50%;
     margin: 10px auto 30px;
     display: block;
+}
+
+#loader {
+  font-size: 12px;
+  text-align: center
+}
+
+#loader-img {
+  display: block;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto;
 }
 
 /*-------------------------------------------- Media Query */
