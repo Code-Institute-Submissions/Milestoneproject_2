@@ -51,7 +51,27 @@
 	</nav>
 
 
-	<!--Music Analysis Section -->
+	<!--World Ranking Section -->
+	<section class="aboutpage page-section" id="aboutme">
+		<div class="background">
+			<div class="container_c">
+				<div class="about-background">
+					<!--About Section Heading -->
+					<div class="text-center ">
+						<h2 class="section-heading">Search Ranking</h2>
+                        <input type="text" id="country_id" placeholder="Type Name of Country">
+                        <button onclick="fetchCountryInformation()">Search</button>
+                    </div>
+						<!--About Section Content -->
+						<div id="country_id-data"></div>
+                        <div id="loading"></div>
+						<div class="row"></div>
+					</div>
+				</div>
+			</div>
+	</section>
+
+	<!--Lyrics Section -->
 	<section class="aboutpage page-section" id="aboutme">
 		<div class="background">
 			<div class="container_c">
@@ -59,9 +79,13 @@
 					<!--About Section Heading -->
 					<div class="text-center ">
 						<h2 class="section-heading">Search Songs</h2>
+                        <input type="text" id="artist_id" placeholder="Type Name of Artist">
+                        <input type="text" id="song_id" placeholder="Type Name of Songs">
+                        <button onclick="fetchSongInformation()">Search</button>
                     </div>
 						<!--About Section Content -->
-						<div id="track_id-data"></div>
+						<div id="song_id-data"></div>
+                        <div id="loading"></div>
 						<div class="row"></div>
 					</div>
 				</div>
@@ -99,6 +123,7 @@
 	<!-- JavaScript-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
 		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
 	<script src="assets/js/test.js"></script>
 </body>
 </html>
