@@ -1,9 +1,6 @@
+var musix_api_url = 'https://api.musixmatch.com/ws/1.1/'
+var client_id_misix = 'API key'
 var client_id_lastfm = 'API key';
-var client_id_misix = 'API key';
-var track_id = {};
-var artist_id = {};
-var firstResponse = {};
-var secondResponse = {};
 
 function fetchCountryInformation(){
     var country_id = $("#country_id").val();
@@ -23,34 +20,50 @@ function fetchCountryInformation(){
     });
 };
 
+// Auto Complete
+function getAutocomplete() {
+let the_id = $("#song_id").val();
+$("#song_id").autocomplete({
+    source: function(response){
+        $.ajax({
+          url: musix_api_url + '/track.search?format=jsonp&callback=?&q_track=' + the_id  + '&page_size=1&apikey=' + client_id_misix,
+          dataType: "json",
+          success: function(data) {
+            response(data["message"]["body"]["track_list"][0]["track"]["track_name"]);
+          }
+        });
+      }, minLength: 1 
+    })
+}
 
-function fetchSongInformation(){
+// Retrieving Lyrics
+function getTrackID (id) {
+    var defer = new $.Deferred;
+    $.getJSON(musix_api_url + '/track.search?format=jsonp&callback=?&q_track=' + id + '&page_size=1&apikey=' + client_id_misix,
+        function(data) {
+        var track_id = data["message"]["body"]["track_list"][0]["track"]["track_id"]
+        console.log(track_id)
+        defer.resolve(track_id);
+    });
+    return defer.promise() 
+}
+
+function getLyrics (id) {
+    $.getJSON(musix_api_url + 'track.lyrics.get?format=jsonp&callback=?&track_id=' + id + '&apikey=' + client_id_misix,
+    function(data){
+        if(data["message"]["header"]["status_code"] !== 200) {
+            $("#song_id-data").html(`<p>The song is not found in the database.</p>`);
+        }
+        else {
+        $("#song_id-data").html(`<p>Lyrics: ${data["message"]["body"]["lyrics"]["lyrics_body"]}</p>`)
+    }
+})
+}
+
+function fetchSongInformation() {
     var song_id = $("#song_id").val();
     if (!song_id) {
     $("#song_id-data").html(`<p>Please enter a name of a song</p>`);
     }
-
-    $.ajax({
-	url: 'https://api.musixmatch.com/ws/1.1/track.search?format=jsonp&callback=?&q_track=' + song_id + '&page_size=1&apikey=' + client_id_misix,
-	dataType: 'json',
-	async: false,
-	success: function(firstResponse) {
-    if (firstResponse["message"]["header"]["status_code"] === 404) {
-            return $("#song_id-data").html(`<p>The song was not found.</p>`)
-        } else {
-            track_id = firstResponse["message"]["body"]["track_list"][0]["track"]["track_id"];
-            artist_id = firstResponse["message"]["body"]["track_list"][0]["track"]["artist_name"];
-            console.log(track_id)
-        }
-    }
-    })
-
-    setTimeout(
-        $.ajax({
-        url: 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?format=jsonp&callback=?&track_id=' + track_id + '&apikey=' + client_id_misix,
-        dataType: 'json',
-        async: false,
-        success: function(secondResponse) {
-	    console.log(secondResponse)}
-    }), 1000)
-}
+    else(getTrackID(song_id).then(function(track_id){getLyrics(track_id)})
+    )}
