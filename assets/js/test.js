@@ -1,5 +1,5 @@
 var musix_api_url = 'https://api.musixmatch.com/ws/1.1/'
-var client_id_misix = 'API key'
+var client_id_misix = '0d080d92b5b22fb4c5e349ed087defa8'
 var client_id_lastfm = 'API key';
 
 function fetchCountryInformation(){
@@ -21,24 +21,35 @@ function fetchCountryInformation(){
 };
 
 // Auto Complete
-function getAutocomplete() {
-let the_id = $("#song_id").val();
-$("#song_id").autocomplete({
-    source: function(response){
-        $.ajax({
-          url: musix_api_url + '/track.search?format=jsonp&callback=?&q_track=' + the_id  + '&page_size=1&apikey=' + client_id_misix,
-          dataType: "json",
-          success: function(data) {
-            response(data["message"]["body"]["track_list"][0]["track"]["track_name"]);
-          }
-        });
-      }, minLength: 1 
+var list_songs = [];
+function getList(id) {
+    let defer = new $.Deferred;
+    $.getJSON(musix_api_url + '/track.search?format=jsonp&callback=?&q_track=' + id + '&page_size=1&apikey=' + client_id_misix,
+            function(data){
+            var songs = data["message"]["body"]["track_list"][0]["track"]["track_name"]
+            list_songs.push(songs)
+            defer.resolve(list_songs)
+        }
+    );
+        return defer.promise()
+    }
+
+function showList(list){
+    $("#song_id").autocomplete({
+        minLength: 2,
+        source: list,
+
     })
+}
+
+function getAutocomplete() {
+    let the_id = $("#song_id").val();
+    getList(the_id).then(function(list_songs){showList(list_songs)})
 }
 
 // Retrieving Lyrics
 function getTrackID (id) {
-    var defer = new $.Deferred;
+    let defer = new $.Deferred;
     $.getJSON(musix_api_url + '/track.search?format=jsonp&callback=?&q_track=' + id + '&page_size=1&apikey=' + client_id_misix,
         function(data) {
         var track_id = data["message"]["body"]["track_list"][0]["track"]["track_id"]
@@ -52,7 +63,7 @@ function getLyrics (id) {
     $.getJSON(musix_api_url + 'track.lyrics.get?format=jsonp&callback=?&track_id=' + id + '&apikey=' + client_id_misix,
     function(data){
         if(data["message"]["header"]["status_code"] !== 200) {
-            $("#song_id-data").html(`<p>The song is not found in the database.</p>`);
+            $("#song_id-data").html(`<p>The lyrics of the song is not found in the database.</p>`);
         }
         else {
         $("#song_id-data").html(`<p>Lyrics: ${data["message"]["body"]["lyrics"]["lyrics_body"]}</p>`)
@@ -61,7 +72,7 @@ function getLyrics (id) {
 }
 
 function fetchSongInformation() {
-    var song_id = $("#song_id").val();
+    let song_id = $("#song_id").val();
     if (!song_id) {
     $("#song_id-data").html(`<p>Please enter a name of a song</p>`);
     }
