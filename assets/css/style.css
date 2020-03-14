@@ -1,8 +1,7 @@
 /*-------------------------------------------- For the whole site*/
 body {
 	overflow-x: hidden;
-	font-family: 'Roboto Slab', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-	background-color: #164e7347;
+	font-family: 'Baloo Paaji 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 p {
@@ -30,7 +29,7 @@ h1,
 h2,
 h3{
     font-weight: 700;
-    font-family: 'Girassol', cursive!important;
+    font-family: 'Baloo Paaji 2', cursive!important;
 }
 h4,
 h5,
@@ -100,17 +99,16 @@ img::-moz-selection {
 .container_c {
     margin: 0px;
     border-width: 0px;
+    bottom: 0;
     border-style: initial;
     border-color: initial;
-    border-image: initial
+    border-image: initial;
+    height: 100vh;
+    width: 100ww
 }
 
 
 /*----------------------------------- Nav bar */
-#mainNav {
-	background-color: #164e73e3;
-}
-
 #mainNav .navbar-toggler {
 	font-size: 20px;
 	right: 0;
@@ -123,7 +121,7 @@ img::-moz-selection {
 
 #mainNav .navbar-brand {
 	color: #fed136;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Bellota', cursive;
     font-size: 2.0em
 }
 
@@ -140,7 +138,7 @@ img::-moz-selection {
 	padding: .75em 0;
 	letter-spacing: 1px;
 	color: #fff;
-	font-family: 'Girassol', cursive
+	font-family: 'Baloo Paaji 2', cursive
     }
 
 #mainNav .navbar-nav .nav-item .nav-link.active,
@@ -180,6 +178,13 @@ img::-moz-selection {
 
 
 /*-------------------------------------------- Main Page */
+
+#background {
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
 
 #aboutme h2 {
     color: #164e73}
@@ -231,18 +236,6 @@ img::-moz-selection {
     background-attachment: scroll!important
 }
 
-#history .background {
-    background-attachment: scroll!important
-}
-
-#project .background {
-    background-attachment: scroll!important
-}
-
-#contact .background {
-    background-attachment: scroll!important
-}
-
 }
 
 @media screen and (min-width:480px) and (max-width:768px) {
@@ -280,7 +273,6 @@ img::-moz-selection {
 .toppage .intro-text .intro-heading {
 	font-size: 2.0rem;
 }
-
 }
 
 /*-------------------------------------------- Footer */
@@ -288,10 +280,10 @@ img::-moz-selection {
 .footer {
 	padding: 15px 0;
 	text-align: center;
-    background-color: #164e73e3;
     left: 0;
-    bottom: 0;
     width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 .footer span.copyright {

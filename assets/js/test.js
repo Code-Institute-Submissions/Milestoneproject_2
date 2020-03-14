@@ -1,56 +1,38 @@
 var musix_api_url = 'https://api.musixmatch.com/ws/1.1/'
 var client_id_misix = '0d080d92b5b22fb4c5e349ed087defa8'
-var client_id_lastfm = 'API key';
 
-function fetchCountryInformation(){
-    var country_id = $("#country_id").val();
-    if (!country_id) {
-    $("#country_id-data").html(`<p>Please enter country</p>`);
-    }
-        
-    return $.getJSON(`https://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=` + country_id + 
-    `&api_key=` + client_id_lastfm + `&format=json`, 
-    function(data){
-        $("#country_id-data").html(`
-        <p>No1 Artist: ${data["topartists"]["artist"][0]["name"]}</p>
-        <p>No2 Artist: ${data["topartists"]["artist"][1]["name"]}</p>
-        <p>No3 Artist: ${data["topartists"]["artist"][2]["name"]}</p>
-        <p>No4 Artist: ${data["topartists"]["artist"][3]["name"]}</p>
-        <p>No5 Artist: ${data["topartists"]["artist"][4]["name"]}</p>`);
-    });
-};
-
-// Auto Complete
-var list_songs = [];
-function getList(id) {
+// Artist Search
+var list_artists = [];
+function getListOfArtists(artist) {
     let defer = new $.Deferred;
-    $.getJSON(musix_api_url + '/track.search?format=jsonp&callback=?&q_track=' + id + '&page_size=1&apikey=' + client_id_misix,
-            function(data){
-            var songs = data["message"]["body"]["track_list"][0]["track"]["track_name"]
-            list_songs.push(songs)
-            defer.resolve(list_songs)
-        }
+    $.getJSON(musix_api_url + 'artist.search?format=jsonp&callback=?&q_artist='
+    + artist + '&page_size=5&f_has_lyrics=true&apikey=' + client_id_misix,
+        function(data){
+            var artist = data["message"]["body"]["artist_list"][0]["artist"]["artist_name"]
+            if (list_artists.indexOf(artist) == -1) {
+            list_artists.push(artist)
+            defer.resolve(list_artists)
+        }},
     );
         return defer.promise()
     }
 
-function showList(list){
-    $("#song_id").autocomplete({
+function showListOfArtists(list){
+    $("artist_id").autocomplete({
         minLength: 2,
-        source: list,
-
+        source: list
     })
 }
 
-function getAutocomplete() {
-    let the_id = $("#song_id").val();
-    getList(the_id).then(function(list_songs){showList(list_songs)})
+function getAutocompleteArtists() {
+    let artist_name = $("#artist_id").val();
+    getListOfArtists(artist_name).then(function(list_artists){showListOfArtists(list_artists)})
 }
 
 // Retrieving Lyrics
-function getTrackID (id) {
+function getTrackID (song) {
     let defer = new $.Deferred;
-    $.getJSON(musix_api_url + '/track.search?format=jsonp&callback=?&q_track=' + id + '&page_size=1&apikey=' + client_id_misix,
+    $.getJSON(musix_api_url + '/track.search?format=jsonp&callback=?&q_track=' + song + '&page_size=1&apikey=' + client_id_misix,
         function(data) {
         var track_id = data["message"]["body"]["track_list"][0]["track"]["track_id"]
         console.log(track_id)
