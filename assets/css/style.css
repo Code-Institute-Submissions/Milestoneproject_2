@@ -192,33 +192,8 @@ img::-moz-selection {
 .about-background {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 30px 30px;
-    border-radius: 15px
-}
-
-.circle-photo {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    width: 200px;
-    height: 200px;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
-    -ms-border-radius: 50%;
-    border-radius: 50%;
-    margin: 10px auto 30px;
-    display: block;
-}
-
-#loader {
-  font-size: 12px;
-  text-align: center
-}
-
-#loader-img {
-  display: block;
-  width: 50px;
-  height: 50px;
-  margin: 0 auto;
+    border-radius: 15px;
+    margin-bottom: 20px
 }
 
 /*-------------------------------------------- Media Query */
