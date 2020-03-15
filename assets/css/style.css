@@ -38,6 +38,11 @@ h6 {
 	font-family: 'IM Fell Double Pica', serif
 }
 
+h1,
+h2 {
+    color: #0f215f
+    }
+
 .page-section h2.section-heading {
 	font-size: 40px;
 	margin-top: 0;
@@ -178,7 +183,6 @@ img::-moz-selection {
 
 
 /*-------------------------------------------- Main Page */
-
 #background {
     background-image: url(../images/background.jpg);
     background-size: cover;
@@ -186,21 +190,34 @@ img::-moz-selection {
     background-repeat: no-repeat;
 }
 
-#aboutme h2 {
-    color: #164e73}
-
-.about-background {
+.background-field {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 30px 30px;
     border-radius: 15px;
     margin-bottom: 20px
 }
 
+#artist_search {
+    margin-right: 10px
+}
+
+#song_search {
+    margin-right: 10px
+}
+
+#song_name {
+    color:#0f215f
+}
+
+#song_name:hover {
+	color: #fed136
+}
+
 /*-------------------------------------------- Media Query */
 
 @media screen and (min-width:0px) and (max-width:480px) {
 .container_c {
-    padding: 50px 30px;
+    padding: 100px 30px;
 }
 
 .toppage {
@@ -215,25 +232,25 @@ img::-moz-selection {
 
 @media screen and (min-width:480px) and (max-width:768px) {
 .container_c {
-    padding: 150px 70px;
+    padding: 100px 70px;
 }
 }
 
 @media screen and (min-width:768px) and (max-width:1024px) {
 .container_c {
-    padding: 150px 100px;
+    padding: 100px 100px;
 }
 }
 
 @media screen and (min-width:1024px) and (max-width:1366px) {
 .container_c {
-    padding: 150px 130px;
+    padding: 100px 130px;
 }
 }
 
 @media screen and (min-width: 1366px) and (max-width:2560px) {
 .container_c {
-    padding: 150px 25%;
+    padding: 100px 25%;
 }
 
 .toppage .intro-text {

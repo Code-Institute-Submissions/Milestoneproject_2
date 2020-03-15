@@ -54,7 +54,7 @@ To be updated
 To be updated
 
 #### Background Photos
-To be updated
+- Background image Photo by Nainoa Shizuru on Unsplash
 
 ### Acknowledgements
 To be updated

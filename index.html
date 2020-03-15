@@ -11,7 +11,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
 		integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Bellota|Baloo+Paaji+2|IM+Fell+Double+Pica&display=swap"
+	<link href="https://fonts.googleapis.com/css?family=Bellota|Baloo+Paaji+2&display=swap"
 		rel="stylesheet">
 
 	<!-- Bootstrap core CSS -->
@@ -51,47 +51,51 @@
 
 	<!--Background image Photo by Nainoa Shizuru on Unsplash-->
 
-	<!--Lyrics Section -->
+	<!--Lyrics Search -->
 	<section class="aboutpage page-section" id="aboutme">
-    <div id="background">
-		<div class="container_c">
-			
-			<div class="row">
+		<div id="background">
+			<div class="container_c">
 
-				<div class="col-lg-6">
-                <!--Search Section-->
-					<div class="text-center about-background">
-						<h2 class="section-heading">Search Songs</h2>
-						<input type="text" id="artist_id" placeholder="Type Name of Artist" oninput = "getAutocompleteArtists()">
-						<input type="text" id="song_id" placeholder="Type Name of Songs" oninput = "getAutocompleteSongs()">
-						<button onclick="fetchSongInformation()">Search</button>
-						<div id="song_id-data"></div>
-						<div id="loading"></div>
+				<div class="row">
+
+					<div class="col-lg-6">
+						<!--Search Section-->
+						<div class="text-center background-field">
+							<h2 class="section-heading">Search Songs</h2>
+							<div class="checkbox checkbox-info checkbox-circle">
+								<input id="artist_search" name="method" type="radio" value="artist_search">
+								<label for="artist_search">Search with Artist name</label>
+							</div>
+							<div class="checkbox checkbox-info checkbox-circle">
+								<input id="song_search" name="method" type="radio" value="song_search">
+								<label for="song_search">Search with Song name</label>
+							</div>
+							<div id="search_param"></div>
+						</div>
+
+						<!--Search Result Section-->
+						<div id="search_result" class="text-center background-field">
+							<h2 class="section-heading">Search Result</h2>
+                            <div id="search_result_body"></div>
+						</div>
 					</div>
 
-                <!--Search Result Section-->
-					<div class="text-center about-background">
-						<h2 class="section-heading">Search Result</h2>
-                        <p>There will be a result of the serach.</p>
-					</div>
-				</div>
+					<div class="col-lg-6">
+						<!--Lyrics Section-->
+						<div class="text-center background-field">
+							<h2 class="section-heading">Lyrics</h2>
+							<div id="lyrics_body"></div>
+						</div>
 
-				<div class="col-lg-6">
-                <!--Lyrics Section-->
-					<div class="text-center about-background">
-						<h2 class="section-heading">Lyrics</h2>
-                        <p>There will be a lyrics of the selected song.</p>
-					</div>
-                    
-                <!--More infomation Section-->
-					<div class="text-center about-background">
-						<h2 class="section-heading">More information</h2>
-						<p>There will be a ranking of the song and Youtube video (or news about the artist).</p>
+						<!--More infomation Section-->
+						<div class="text-center background-field">
+							<h2 class="section-heading">More information</h2>
+							<p>There will be a ranking of the song and Youtube video (or news about the artist).</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-    </div>
 	</section>
 
 	<!-- Footer -->
@@ -128,7 +132,7 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
 	</script>
 	<script type="text/javascript" src="https://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
-	<script src="assets/js/test.js"></script>
+	<script src="assets/js/fetching_music.js"></script>
 </body>
 
 </html>
