@@ -1,5 +1,6 @@
 var musix_api_url = 'https://api.musixmatch.com/ws/1.1/'
-var client_id_misix = '0d080d92b5b22fb4c5e349ed087defa8'
+var client_id_misix = 'API KEY'
+deepai.setApiKey('API KEY');
 
 // Search Section
 $("input[id='artist_search']").on("click", function () {
@@ -29,25 +30,34 @@ function fetchArtistInformation() {
             else {
                 $("#search_result_body").html(`<p>Choose a song to get the lyrics.</p>`)
                 $(data.message.body.track_list).each(function () {
-                    $('<p id="song_name" onclick=fetchLyrics()>' + this.track.track_name + '</span>').appendTo("#search_result_body")
+                    var track_name = this.track.track_name;
+                    $('<ul name="track" class="song_name">' + track_name + '</ul>').appendTo("#search_result_body");
                 })
             }
         })
 }
 
-
 // Retrieving Lyrics
-function fetchLyrics() {
+$('body').on('click', '.song_name', function () {
+    let i = $("ul.song_name").index(this);
+    let song = document.getElementsByName("track")[i].textContent;
     let artist = $("#artist_id").val();
-    let song = $("#song_name").val();
-
-    $.getJSON(musix_api_url + 'matcher.lyrics.get?format=jsonp&callback=?&q_track=' 
-    + song + 'q_artist=' + artist + '&apikey=' + client_id_misix,
-    function (data) {
-        console.log(song)
-        console.log(artist)
-        console.log(data)
+    $.getJSON(musix_api_url + 'matcher.lyrics.get?format=jsonp&callback=?&q_track='
+        + song + '&q_artist=' + artist + '&apikey=' + client_id_misix,
+        function (data) {
+            $("#lyrics_body").html(`<p id="lyrics">` + data["message"]["body"]["lyrics"]["lyrics_body"].split("...")[0] + 
+            `</p><button onclick="SentimentAnalysis()">Sentiment Analysis</button>`)
         })
+})
+
+// Sentiment Analysis
+function SentimentAnalysis() {
+(async function () {
+        var resp = await deepai.callStandardApi("sentiment-analysis", {
+            text: document.getElementById('lyrics').textContent,
+        });
+        console.log(resp);
+    })()
 }
 
 function getTrackID(song) {

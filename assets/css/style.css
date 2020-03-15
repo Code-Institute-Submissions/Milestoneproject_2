@@ -184,7 +184,6 @@ img::-moz-selection {
 
 /*-------------------------------------------- Main Page */
 #background {
-    background-image: url(../images/background.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -192,7 +191,7 @@ img::-moz-selection {
 
 .background-field {
     background-color: rgba(255, 255, 255, 0.95);
-    padding: 30px 30px;
+    padding: 15px 15px;
     border-radius: 15px;
     margin-bottom: 20px
 }
@@ -205,11 +204,11 @@ img::-moz-selection {
     margin-right: 10px
 }
 
-#song_name {
+.song_name {
     color:#0f215f
 }
 
-#song_name:hover {
+.song_name:hover {
 	color: #fed136
 }
 
