@@ -30,7 +30,7 @@ function fetchArtistInformation() {
             else {
                 $("#search_result_body").html(`<p>Choose a song to get the lyrics.</p>`)
                 $(data.message.body.track_list).each(function () {
-                    var track_name = this.track.track_name;
+                    let track_name = this.track.track_name;
                     $('<ul name="track" class="song_name">' + track_name + '</ul>').appendTo("#search_result_body");
                 })
             }
@@ -60,34 +60,29 @@ function SentimentAnalysis() {
     })()
 }
 
-function getTrackID(song) {
+// Related Artists & Videos
+function getArtistID() {
     let defer = new $.Deferred;
-    $.getJSON(musix_api_url + '/track.search?format=jsonp&callback=?&q_track=' + song + '&page_size=1&apikey=' + client_id_misix,
+    let artist = $("#artist_id").val();
+    $.getJSON(musix_api_url + '/artist.search?format=jsonp&callback=?&q_artist=' + artist + 
+    '&page_size=1&apikey=' + client_id_misix,
         function (data) {
-            var track_id = data["message"]["body"]["track_list"][0]["track"]["track_id"]
-            console.log(track_id)
-            defer.resolve(track_id);
+            let artist_id = data["message"]["body"]["artist_list"][0]["artist"]["artist_id"]
+            defer.resolve(artist_id);
         });
-    return defer.promise()
+        return defer.promise()
 }
 
-function getLyrics(id) {
-    $.getJSON(musix_api_url + 'track.lyrics.get?format=jsonp&callback=?&track_id=' + id + '&apikey=' + client_id_misix,
-        function (data) {
-            if (data["message"]["header"]["status_code"] !== 200) {
-                $("#song_id-data").html(`<p>The lyrics of the song is not found in the database.</p>`);
-            }
-            else {
-                $("#song_id-data").html(`<p>Lyrics: ${data["message"]["body"]["lyrics"]["lyrics_body"]}</p>`)
-            }
+function getRelatedArtists(id){
+    $.getJSON(musix_api_url + 'artist.related.get?format=jsonp&callback=?&artist_id=' + id + 
+    '&page_size=3&page=1&apikey=' + client_id_misix,
+    function(data){
+        $(data.message.body.artist_list).each(function(){
+            let related_artist = this.artist.artist_name;
+            $('<ul>' + related_artist + '</ul>').appendTo("related_artist")
         })
-}
-
-function fetchSongInformation() {
-    let song_id = $("#song_id").val();
-    if (!song_id) {
-        $("#song_id-data").html(`<p>Please enter a name of a song</p>`);
     }
-    else (getTrackID(song_id).then(function (track_id) { getLyrics(track_id) })
-    )
-}
+    )}
+ 
+function fetchSongInformation() {
+    getArtistID().then(function (artist_id) {getRelatedArtists(artist_id)})}
