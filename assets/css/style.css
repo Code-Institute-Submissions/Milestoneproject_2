@@ -153,8 +153,8 @@ img::-moz-selection {
 
 @media (min-width:992px) {
 	#mainNav {
-		padding-top: 18px;
-		padding-bottom: 18px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		transition: padding-top .3s, padding-bottom .3s;
 		border: none;
 	}
