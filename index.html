@@ -11,8 +11,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css"
 		integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=Bellota|Baloo+Paaji+2&display=swap"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bellota|Baloo+Paaji+2&display=swap" rel="stylesheet">
 
 	<!-- Bootstrap core CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -55,9 +54,7 @@
 	<section class="aboutpage page-section" id="aboutme">
 		<div id="background">
 			<div class="container_c">
-
 				<div class="row">
-
 					<div class="col-lg-3">
 						<!--Search Section-->
 						<div class="text-center background-field">
@@ -71,15 +68,12 @@
 								<label for="song_search">Search with Song name</label>
 							</div>
 							<div id="search_param"></div>
-						</div>
-
-						<!--Search Result Section-->
-						<div id="search_result" class="text-center background-field">
-							<h2 class="section-heading">Search Result</h2>
-                            <div onclick="fetchSongInformation()">
-                            <ul id="search_result_body">
-                            </ul>
-                            </div>
+							<div onclick="fetchSongInformation();googleApiClientReady()">
+								<ul id="search_result_body1">
+								</ul>
+                                <ul id="search_result_body2">
+								</ul>
+							</div>
 						</div>
 					</div>
 
@@ -87,15 +81,18 @@
 						<!--Lyrics Section-->
 						<div class="text-center background-field">
 							<h2 class="section-heading">Lyrics</h2>
-							<div id="lyrics_body"></div>
+							<div id="show_lyrics"></div>
 						</div>
-                    </div>
-                    <div class="col-lg-3">
+					</div>
+
+					<div class="col-lg-3">
 						<!--More infomation Section-->
 						<div class="text-center background-field">
 							<h2 class="section-heading">More information</h2>
+							<div id="video">
+                                <div id="video-window"><video>
+                            </div>
 							<div id="related_artist"></div>
-                            <div id="video"></div>
 						</div>
 					</div>
 				</div>
@@ -137,8 +134,9 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js">
 	</script>
 	<script type="text/javascript" src="https://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
-    <script src="https://cdnjs.deepai.org/deepai.min.js"></script>
-    <!-- Custom JavaScript -->
+	<script src="https://cdnjs.deepai.org/deepai.min.js"></script>
+	<script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+	<!-- Custom JavaScript -->
 	<script src="assets/js/fetching_music.js"></script>
 </body>
 
