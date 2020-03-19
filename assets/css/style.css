@@ -1,11 +1,15 @@
 /*-------------------------------------------- For the whole site*/
 body {
 	overflow-x: hidden;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image:  url(../images/background.jpg);
+    background-repeat: no-repeat;
 	font-family: 'Baloo Paaji 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 p {
-	line-height: 1.75
+	line-height: 1.30
 }
 
 a {
@@ -27,24 +31,17 @@ hr {
 
 h1,
 h2,
-h3{
-    font-weight: 700;
-    font-family: 'Baloo Paaji 2', cursive!important;
-}
+h3,
 h4,
 h5,
 h6 {
-	font-weight: 700;
-	font-family: 'IM Fell Double Pica', serif
-}
-
-h1,
-h2 {
+    font-weight: 700;
+    font-family: 'Baloo Paaji 2', cursive!important;
     color: #0f215f
     }
 
 .page-section h2.section-heading {
-	font-size: 40px;
+	font-size: 34px;
 	margin-top: 0;
 	margin-bottom: 10px
 }
@@ -102,14 +99,18 @@ img::-moz-selection {
 }
 
 .container_c {
-    margin: 0px;
-    border-width: 0px;
+    position: absolute;
+    top:0;
     bottom: 0;
+    right: 0;
+    left: 0;
+    padding-top: 13vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 10vh;
     border-style: initial;
     border-color: initial;
     border-image: initial;
-    height: 100vh;
-    width: 100ww
 }
 
 
@@ -153,8 +154,8 @@ img::-moz-selection {
 
 @media (min-width:992px) {
 	#mainNav {
-		padding-top: 10px;
-		padding-bottom: 10px;
+		padding-top: 5px;
+		padding-bottom: 5px;
 		transition: padding-top .3s, padding-bottom .3s;
 		border: none;
 	}
@@ -183,17 +184,11 @@ img::-moz-selection {
 
 
 /*-------------------------------------------- Main Page */
-#background {
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-}
 
 .background-field {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 15px 15px;
     border-radius: 15px;
-    margin-bottom: 20px
 }
 
 #artist_search {
@@ -204,6 +199,10 @@ img::-moz-selection {
     margin-right: 10px
 }
 
+#search_param {
+    margin-bottom: 20px
+}
+
 .song_name {
     color:#0f215f
 }
@@ -212,38 +211,72 @@ img::-moz-selection {
 	color: #fed136
 }
 
+#search_result_body1 {
+    margin-bottom:10px;
+}
+
+#search_result_body2 {
+    margin: auto;
+    border: none;
+    padding: 5px;
+    width: 100%;
+    height: 120px;
+    overflow-x: scroll;
+    overflow-y: scroll;
+}
+
+ul {
+    padding-left: 0px!important
+}
+
+#lyrics {
+margin: auto;
+border: none;
+padding: 5px;
+width: 100%;
+height: 100%;
+overflow-x: scroll;
+overflow-y: scroll;
+}
+
+#video{
+    padding-bottom: 20px
+}
+
 /*-------------------------------------------- Media Query */
 
 @media screen and (min-width:0px) and (max-width:480px) {
 .container_c {
-    padding: 100px 30px;
+    padding-top: 13vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
-
-.toppage {
-    background-attachment: scroll!important
-}
-
 #aboutme .background {
     background-attachment: scroll!important
 }
-
 }
 
 @media screen and (min-width:480px) and (max-width:768px) {
 .container_c {
-    padding: 100px 70px;
+    padding-top: 13vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 }
 
 @media screen and (min-width:768px) and (max-width:1024px) {
 .container_c {
-    padding: 100px 100px;
+    padding-top: 13vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 }
 
 @media screen and (min-width:1024px) and (max-width:1366px) {
 .container_c {
-    padding: 100px 130px;
+    padding-top: 13vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 }
 
@@ -251,30 +284,17 @@ img::-moz-selection {
 .container_c {
     padding: 100px 25%;
 }
-
-.toppage .intro-text {
-    padding-top: 800px;
-    padding-left: 0px
-}
-
-.toppage .intro-text .intro-lead-in {
-	font-size: 3.0rem;
-}
-
-.toppage .intro-text .intro-heading {
-	font-size: 2.0rem;
-}
 }
 
 /*-------------------------------------------- Footer */
 
 .footer {
+    position: fixed;
 	padding: 15px 0;
 	text-align: center;
     left: 0;
-    width: 100%;
-    position: absolute;
     bottom: 0;
+    width: 100%;
 }
 
 .footer span.copyright {
@@ -294,7 +314,7 @@ img::-moz-selection {
 }
 
 ul.social-buttons {
-	margin-bottom: 0;
+	margin-bottom: 0
 }
 
 ul.social-buttons li a {
@@ -309,12 +329,13 @@ ul.social-buttons li a {
 	color: #fff;
 	border-radius: 100%;
 	outline: 0;
-	background-color: #212529;
+	background-color: #212529
 }
+
 
 ul.social-buttons li a:active,
 ul.social-buttons li a:focus,
 ul.social-buttons li a:hover {
 	background-color: #fed136;
-	text-decoration: none;
-}
+	text-decoration: none
+    }
