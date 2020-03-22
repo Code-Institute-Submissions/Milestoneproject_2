@@ -22,7 +22,7 @@ function fetchArtistInformation() {
     let artist = $("#artist_id").val();
     $("#search_result_body").html('');
     $.getJSON(musix_api_url + 'track.search?format=jsonp&callback=?&q_artist='
-        + artist + '&f_has_lyrics=true&s_track_rating=desc&page_size=10&apikey=' + client_id_misix,
+        + artist + '&f_has_lyrics=true&s_track_rating=desc&page_size=20&apikey=' + client_id_misix,
         function (data) {
             if (data["message"]["header"]["status_code"] !== 200) {
                 $("#search_result_body").html(`<p>Error occured. Please try it again.</p>`)
@@ -31,7 +31,7 @@ function fetchArtistInformation() {
                 $("#search_result_body1").html(`<h5>Choose a song to get the lyrics.</h5>`)
                 $(data.message.body.track_list).each(function () {
                     let track_name = this.track.track_name;
-                    $('<ul name="track" class="song_name">' + track_name + '</ul>').appendTo("#search_result_body2");
+                    $('<li name="track" class="song_name">' + track_name + '</li>').appendTo("#search_result_body2");
                 })
             }
         })
