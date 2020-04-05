@@ -18,12 +18,17 @@ $("input[id='song_search']").on("click", function () {
 })
 
 // Search Result Section
+var page_num = 1;
 function fetchArtistInformation() {
-    let artist = $("#artist_id").val();
     $("#search_result_body2").html('');
-    $.getJSON(musix_api_url + 'track.search?format=jsonp&callback=?&q_artist='
-        + artist + '&f_has_lyrics=true&s_track_rating=desc&page_size=20&apikey=' + client_id_misix,
-        function (data) {
+    getSongList()
+}
+
+function getSongList() {
+var artist = $("#artist_id").val();
+$.getJSON(musix_api_url + 'track.search?format=jsonp&callback=?&q_artist='
+        + artist + '&f_has_lyrics=true&s_track_rating=desc&page_size=15&page='+ page_num +'&apikey=' + client_id_misix,
+        function(data) {
             if (data["message"]["header"]["status_code"] !== 200) {
                 $("#search_result_body1").html(`<p>Error occured. Please try it again.</p>`)
             }
@@ -32,9 +37,17 @@ function fetchArtistInformation() {
                 $(data.message.body.track_list).each(function () {
                     let track_name = this.track.track_name;
                     $('<li name="track" class="song_name">' + track_name + '</li>').appendTo("#search_result_body2");
-                })
+                });
+                $('<button onclick="Loadmore()" id="hide">Load More</button>').appendTo("#search_result_body2");
+                }
             }
-        })
+)
+}
+
+function Loadmore() {
+    $("#hide").remove();
+    page_num++;
+    getSongList();
 }
 
 // Retrieving Lyrics & Get Youtube video
