@@ -20,7 +20,7 @@ $("input[id='song_search']").on("click", function () {
 // Search Result Section
 function fetchArtistInformation() {
     let artist = $("#artist_id").val();
-    $("#search_result_body").html('');
+    $("#search_result_body2").html('');
     $.getJSON(musix_api_url + 'track.search?format=jsonp&callback=?&q_artist='
         + artist + '&f_has_lyrics=true&s_track_rating=desc&page_size=20&apikey=' + client_id_misix,
         function (data) {
@@ -28,7 +28,7 @@ function fetchArtistInformation() {
                 $("#search_result_body1").html(`<p>Error occured. Please try it again.</p>`)
             }
             else {
-                $("#search_result_body1").html(`<h5>Choose a song to get the lyrics.</h5>`)
+                $("#search_result_body1").html(`<h5>Choose a song to get the lyrics.</h5>`);
                 $(data.message.body.track_list).each(function () {
                     let track_name = this.track.track_name;
                     $('<li name="track" class="song_name">' + track_name + '</li>').appendTo("#search_result_body2");
@@ -44,6 +44,7 @@ function getLyrics() {
     let i = $("li.song_name").index(this);
     let artist = $("#artist_id").val();
     var song = document.getElementsByName("track")[i].textContent;
+    defer.resolve(song);
     $.getJSON(musix_api_url + 'matcher.lyrics.get?format=jsonp&callback=?&q_track='
         + song + '&q_artist=' + artist + '&apikey=' + client_id_misix,
         function (data) {
@@ -52,9 +53,8 @@ function getLyrics() {
             $("#show_lyrics").html(`<div id="lyrics">` + cleaned +
                 `</div><button onclick="SentimentAnalysis()">Sentiment Analysis</button>`)
         });
-            defer.resolve(song);
     });
-    return defer.promise()
+    return defer.promise();
 }
 
 function googleApiClientReady(song_chosen) {
@@ -75,6 +75,7 @@ function search(song_chosen) {
     console.log(song_chosen);
 
     request.execute(function (response) {
+        $("#video-window").html('');
         let video_id = response.result["items"][0]["id"]["videoId"];
         $("#video-window").html(`<h5>Watch the most related video.</h5><iframe width="100%" height="100%" src="https://www.youtube.com/embed/` + video_id +
         `" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
@@ -82,8 +83,9 @@ function search(song_chosen) {
     })
 }
 
-getLyrics().then(function (song) { googleApiClientReady(song) })
-
+function fetchLyricsVideoInformation() {
+    getLyrics().then(function(song){googleApiClientReady(song)})
+}
 
 // Sentiment Analysis
 function SentimentAnalysis() {
@@ -112,16 +114,19 @@ function getRelatedArtists(id) {
     $.getJSON(musix_api_url + 'artist.related.get?format=jsonp&callback=?&artist_id=' + id +
         '&page_size=3&page=1&apikey=' + client_id_misix,
         function (data) {
-            if (data.message.body.artist_list.length !== 0)
-                $("#related_artist").html(`<h5>Recommended Artists</h5>`)
+            if (data.message.body.artist_list.length !== 0) {
+                $("#related_artist").html(`<h5>Recommended Artists</h5>`);
             $(data.message.body.artist_list).each(function () {
                 let related_artist = this.artist.artist_name;
                 $('<ul>' + related_artist + '</ul>').appendTo("#related_artist");
             })
-        }
-    )
-}
+            }
+            else {
+                $("#related_artist").html(`<h5>Recommended Artists</h5>
+                <p>Data not found in the database.</p>`);
+            }
+})}
 
 function fetchRelatedSongInformation() {
-    getArtistID().then(function (artist_id) { getRelatedArtists(artist_id) })
+    getArtistID().then(function(artist_id){getRelatedArtists(artist_id)})
 }
