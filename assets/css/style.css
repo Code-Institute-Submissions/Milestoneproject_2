@@ -211,10 +211,6 @@ img::-moz-selection {
 	color: #fed136
 }
 
-#search_result{
-
-}
-
 #search_result_body1 {
     margin-bottom:10px;
 }
@@ -243,7 +239,7 @@ overflow-x: scroll;
 overflow-y: scroll;
 }
 
-#video{
+#video-window{
     padding-bottom: 20px
 }
 
