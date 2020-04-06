@@ -2,20 +2,48 @@ const musix_api_url = 'https://api.musixmatch.com/ws/1.1/'
 const client_id_misix = '0d080d92b5b22fb4c5e349ed087defa8'
 deepai.setApiKey('8b511c81-08a3-4db2-9d6e-ced35b2d1d70');
 
-// Search Section
-$("input[id='artist_search']").on("click", function () {
-    $("#search_param").html(`
-    <input type="text" id="artist_id" placeholder="Type Name of Artist">
-    <button onclick="fetchArtistInformation()">Search</button>
-    `);
-})
+// Auto Complete Artist Name
+var typingTimer;              
+var doneTypingInterval = 1000;
 
-$("input[id='song_search']").on("click", function () {
-    $("#search_param").html(`
-    <input type="text" id="song_id" placeholder="Type Name of Songs">
-    <button onclick="fetchRelatedSongInformation()">Search</button>
-    `);
+//on keyup, start the countdown
+$("#artist_id").on('keyup', function () {
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(getListOfAutocomplete, doneTypingInterval);
+});
+
+//on keydown, clear the countdown 
+$("#artist_id").on('keydown', function () {
+  clearTimeout(typingTimer);
+});
+
+function getListOfArtists() {
+    let defer = new $.Deferred;
+    $.getJSON(musix_api_url + 'artist.search?format=jsonp&callback=?&q_artist=' + $("#artist_id").val() + '&apikey=' + client_id_misix,
+	function(data){
+            let list_can = [];
+            for (var i = 0; i < 11; i++) {
+            var candidate = data["message"]["body"]["artist_list"][i]["artist"]["artist_name"];
+            list_can.push(candidate);
+            defer.resolve(list_can);
+            }
+		})
+        return defer.promise();
+}
+ 
+var selectItem = $("#artist_id").val();
+
+function showListOfArtists(list) {
+        $("#artist_id").autocomplete({
+            source: list,
+            select: selectItem,
+            minLength: 1
 })
+}
+
+function getListOfAutocomplete() {
+    getListOfArtists().then(function(list_artist){showListOfArtists(list_artist)})
+}
 
 // Search Result Section
 var page_num = 1;
@@ -38,13 +66,13 @@ $.getJSON(musix_api_url + 'track.search?format=jsonp&callback=?&q_artist='
                     let track_name = this.track.track_name;
                     $('<li name="track" class="song_name">' + track_name + '</li>').appendTo("#search_result_body2");
                 });
-                $('<button onclick="Loadmore()" id="hide">Load More</button>').appendTo("#search_result_body2");
+                $('<button onclick="loadmore()" id="hide">Load More</button>').appendTo("#search_result_body2");
                 }
             }
 )
 }
 
-function Loadmore() {
+function loadmore() {
     $("#hide").remove();
     page_num++;
     getSongList();
