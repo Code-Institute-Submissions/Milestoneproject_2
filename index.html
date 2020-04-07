@@ -61,12 +61,12 @@
 							<h2 class="section-heading">Search Songs</h2>
 							<div class="checkbox checkbox-info checkbox-circle">
 								<h5 for="artist_search">Search with Artist name</h5>
-                                <input type="text" id="artist_id" placeholder="Type Name of Artist">
-                                <button onclick="fetchArtistInformation()">Search</button>
+                                <input type="text" id="artist_id" onkeyup="getListOfAutocomplete()" placeholder="Type Name of Artist">
+                                <button onclick="fetchArtistInformation();fetchRelatedSongInformation()">Search</button>
 							</div>
 							<div id="search_param"></div>
                             <div id="suggesstion-box" style="display: block;"></div>
-							<div onclick="fetchRelatedSongInformation();fetchLyricsVideoInformation()">
+							<div onclick="fetchLyricsVideoInformation()">
 								<div id="search_result_body1">
 								</div>
                                 <ul id="search_result_body2">
@@ -87,10 +87,10 @@
 						<!--More infomation Section-->
 						<div class="text-center background-field">
 							<h2 class="section-heading">More information</h2>
+                            <div id="related_artist"></div>
 							<div id="video">
                                 <div id="video-window"><video>
                             </div>
-							<div id="related_artist"></div>
 						</div>
 					</div>
 				</div>
