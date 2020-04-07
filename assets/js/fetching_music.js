@@ -3,23 +3,9 @@ const client_id_misix = '0d080d92b5b22fb4c5e349ed087defa8'
 deepai.setApiKey('8b511c81-08a3-4db2-9d6e-ced35b2d1d70');
 
 // Auto Complete Artist Name
-var typingTimer;              
-var doneTypingInterval = 1000;
-
-//on keyup, start the countdown
-$("#artist_id").on('keyup', function () {
-  clearTimeout(typingTimer);
-  typingTimer = setTimeout(getListOfAutocomplete, doneTypingInterval);
-});
-
-//on keydown, clear the countdown 
-$("#artist_id").on('keydown', function () {
-  clearTimeout(typingTimer);
-});
-
 function getListOfArtists() {
     let defer = new $.Deferred;
-    $.getJSON(musix_api_url + 'artist.search?format=jsonp&callback=?&q_artist=' + $("#artist_id").val() + '&apikey=' + client_id_misix,
+    $.getJSON(musix_api_url + 'artist.search?format=jsonp&callback=?&page_size=10&q_artist=' + $("#artist_id").val() + '&apikey=' + client_id_misix,
 	function(data){
             let list_can = [];
             for (var i = 0; i < 11; i++) {
