@@ -199,6 +199,21 @@ img::-moz-selection {
     margin-right: 10px
 }
 
+.ui-autocomplete {
+    list-style-type: none;
+    width: 160px;
+    background-color: #ffffff;
+}
+
+.ui-state-hover,
+.ui-state-active,
+.ui-state-focus {
+  text-decoration: none;
+  color: #fed136;
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
 #search_param {
     margin-bottom: 20px
 }
