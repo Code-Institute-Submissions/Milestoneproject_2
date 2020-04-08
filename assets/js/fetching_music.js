@@ -53,7 +53,7 @@ $.getJSON(musix_api_url + 'track.search?format=jsonp&callback=?&q_artist='
                     let track_name = this.track.track_name;
                     $('<li name="track" class="song_name">' + track_name + '</li>').appendTo("#search_result_body2");
                 });
-                $('<button onclick="loadmore()" id="hide">Load More</button>').appendTo("#search_result_body2");
+                $('<button onclick="loadmore()" id="hide" class="btn btn-link">Load More</button>').appendTo("#search_result_body2");
                 }
             }
 )
@@ -77,9 +77,10 @@ function getLyrics() {
     $.getJSON(musix_api_url + 'matcher.lyrics.get?format=jsonp&callback=?&q_track='
         + song + '&q_artist=' + artist + '&apikey=' + client_id_misix,
         function (data) {
+            console.log(data);
         let lyrics_body = data["message"]["body"]["lyrics"]["lyrics_body"].split("...")[0];
         let cleaned = lyrics_body.replace(/\r?\n/g, "<br />");
-            $("#show_lyrics").html(`<div id="lyrics">` + cleaned + `</div>`)
+            $("#show_lyrics").html(`<h4>` + song + `</h4><div id="lyrics">` + cleaned + `</div>`)
         });
     });
     return defer.promise();
