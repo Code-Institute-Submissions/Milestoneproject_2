@@ -71,18 +71,23 @@ img::-moz-selection {
 }
 
 .btn {
-	font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-	font-weight: 700
-}
-
-.btn-xl {
-	font-size: 18px;
-	padding: 20px 40px
+	font-weight: 1000
 }
 
 .btn-primary {
-	background-color: #fed136;
-	border-color: #fed136
+	background-color: #0f215f;
+	border-color: #fff
+}
+
+.btn-link{
+    color: #e29300;
+}
+
+.btn-link:active,
+.btn-link:focus,
+.btn-link:hover{
+    color: #e25300;
+    text-decoration: none
 }
 
 .btn-primary:active,
@@ -115,16 +120,6 @@ img::-moz-selection {
 
 
 /*----------------------------------- Nav bar */
-#mainNav .navbar-toggler {
-	font-size: 20px;
-	right: 0;
-	padding: 15px;
-	text-transform: uppercase;
-	color: #fed136;
-	border: 0;
-	font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
-}
-
 #mainNav .navbar-brand {
 	color: #fed136;
     font-family: 'Bellota', cursive;
@@ -184,7 +179,6 @@ img::-moz-selection {
 
 
 /*-------------------------------------------- Main Page */
-
 .background-field {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 15px 15px;
@@ -195,8 +189,8 @@ img::-moz-selection {
     margin-right: 10px
 }
 
-#song_search {
-    margin-right: 10px
+#artist_id {
+    margin-bottom: 8px
 }
 
 .ui-autocomplete {
