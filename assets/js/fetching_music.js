@@ -1,6 +1,6 @@
 const musix_api_url = 'https://api.musixmatch.com/ws/1.1/'
 const client_id_misix = '0d080d92b5b22fb4c5e349ed087defa8'
-deepai.setApiKey('8b511c81-08a3-4db2-9d6e-ced35b2d1d70');
+
 
 // Auto Complete Artist Name
 function getListOfArtists() {
@@ -30,6 +30,7 @@ function showListOfArtists(list) {
 function getListOfAutocomplete() {
     getListOfArtists().then(function(list_artist){showListOfArtists(list_artist)})
 }
+
 
 // Search Result Section
 var page_num = 1;
@@ -64,6 +65,7 @@ function loadmore() {
     getSongList();
 }
 
+
 // Retrieving Lyrics & Get Youtube video
 function getLyrics() {
     let defer = new $.Deferred;
@@ -77,8 +79,7 @@ function getLyrics() {
         function (data) {
         let lyrics_body = data["message"]["body"]["lyrics"]["lyrics_body"].split("...")[0];
         let cleaned = lyrics_body.replace(/\r?\n/g, "<br />");
-            $("#show_lyrics").html(`<div id="lyrics">` + cleaned +
-                `</div><button onclick="SentimentAnalysis()">Sentiment Analysis</button>`)
+            $("#show_lyrics").html(`<div id="lyrics">` + cleaned + `</div>`)
         });
     });
     return defer.promise();
@@ -114,15 +115,6 @@ function fetchLyricsVideoInformation() {
     getLyrics().then(function(song){googleApiClientReady(song)})
 }
 
-// Sentiment Analysis
-function SentimentAnalysis() {
-    (async function () {
-        let resp = await deepai.callStandardApi("sentiment-analysis", {
-            text: document.getElementById('lyrics').textContent,
-        });
-        console.log(resp);
-    })()
-}
 
 // Recommended Artists
 function getArtistID() {
