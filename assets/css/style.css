@@ -13,7 +13,7 @@ p {
 }
 
 a {
-	color: #212529
+	color: #0f215f
 }
 
 a:hover {
@@ -259,6 +259,12 @@ overflow-y: scroll;
 #video-window{
     padding-bottom: 20px
 }
+
+#related_artist, #artist_info {
+    padding-bottom: 25px
+}
+
+
 
 /*-------------------------------------------- Media Query */
 
