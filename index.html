@@ -50,7 +50,7 @@
 							<div class="checkbox checkbox-info checkbox-circle">
 								<h5 for="artist_search">Search with Artist name</h5>
 								<input type="text" id="artist_id" class="form-group form-control" onkeyup="getListOfAutocomplete()" placeholder="Type Name of Artist">
-								<button class="btn btn-primary" onclick="fetchArtistInformation();fetchRelatedSongInformation()">Search</button>
+								<button class="btn btn-primary" onclick="fetchArtistInformation();fetchRelatedSongInformation();getInfoOfArtistLastFM()">Search</button>
 							</div>
 							<div id="search_param"></div>
 							<div id="suggesstion-box" style="display: block;"></div>
@@ -76,9 +76,9 @@
 						<div class="text-center background-field">
 							<h2 class="section-heading">More information</h2>
 							<div id="related_artist"></div>
+                            <div id="artist_info"></div>
 							<div id="video">
-								<div id="video-window"><video>
-								</div>
+								<div id="video-window"></div>
 							</div>
 						</div>
 					</div>
