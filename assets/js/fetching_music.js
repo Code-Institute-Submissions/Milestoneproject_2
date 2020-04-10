@@ -6,29 +6,29 @@ const client_id_misix = '0d080d92b5b22fb4c5e349ed087defa8'
 function getListOfArtists() {
     let defer = new $.Deferred;
     $.getJSON(musix_api_url + 'artist.search?format=jsonp&callback=?&page_size=10&q_artist=' + $("#artist_id").val() + '&apikey=' + client_id_misix,
-	function(data){
+        function (data) {
             let list_can = [];
             for (var i = 0; i < 11; i++) {
-            var candidate = data["message"]["body"]["artist_list"][i]["artist"]["artist_name"];
-            list_can.push(candidate);
-            defer.resolve(list_can);
+                var candidate = data["message"]["body"]["artist_list"][i]["artist"]["artist_name"];
+                list_can.push(candidate);
+                defer.resolve(list_can);
             }
-		})
-        return defer.promise();
+        })
+    return defer.promise();
 }
- 
+
 var selectItem = $("#artist_id").val();
 
 function showListOfArtists(list) {
-        $("#artist_id").autocomplete({
-            source: list,
-            select: selectItem,
-            minLength: 1
-})
+    $("#artist_id").autocomplete({
+        source: list,
+        select: selectItem,
+        minLength: 1
+    })
 }
 
 function getListOfAutocomplete() {
-    getListOfArtists().then(function(list_artist){showListOfArtists(list_artist)})
+    getListOfArtists().then(function (list_artist) { showListOfArtists(list_artist) })
 }
 
 
@@ -40,10 +40,10 @@ function fetchArtistInformation() {
 }
 
 function getSongList() {
-var artist = $("#artist_id").val();
-$.getJSON(musix_api_url + 'track.search?format=jsonp&callback=?&q_artist='
-        + artist + '&f_has_lyrics=true&s_track_rating=desc&page_size=15&page='+ page_num +'&apikey=' + client_id_misix,
-        function(data) {
+    var artist = $("#artist_id").val();
+    $.getJSON(musix_api_url + 'track.search?format=jsonp&callback=?&q_artist='
+        + artist + '&f_has_lyrics=true&s_track_rating=desc&page_size=15&page=' + page_num + '&apikey=' + client_id_misix,
+        function (data) {
             if (data["message"]["header"]["status_code"] !== 200) {
                 $("#search_result_body1").html(`<p>Error occured. Please try it again.</p>`)
             }
@@ -54,9 +54,9 @@ $.getJSON(musix_api_url + 'track.search?format=jsonp&callback=?&q_artist='
                     $('<li name="track" class="song_name">' + track_name + '</li>').appendTo("#search_result_body2");
                 });
                 $('<button onclick="loadmore()" id="hide" class="btn btn-link">Load More</button>').appendTo("#search_result_body2");
-                }
             }
-)
+        }
+    )
 }
 
 function loadmore() {
@@ -70,18 +70,18 @@ function loadmore() {
 function getLyrics() {
     let defer = new $.Deferred;
     $('body').on('click', '.song_name', function () {
-    let i = $("li.song_name").index(this);
-    let artist = $("#artist_id").val();
-    var song = document.getElementsByName("track")[i].textContent;
-    defer.resolve(song);
-    $.getJSON(musix_api_url + 'matcher.lyrics.get?format=jsonp&callback=?&q_track='
-        + song + '&q_artist=' + artist + '&apikey=' + client_id_misix,
-        function (data) {
-            console.log(data);
-        let lyrics_body = data["message"]["body"]["lyrics"]["lyrics_body"].split("...")[0];
-        let cleaned = lyrics_body.replace(/\r?\n/g, "<br />");
-            $("#show_lyrics").html(`<h4>` + song + `</h4><div id="lyrics">` + cleaned + `</div>`)
-        });
+        let i = $("li.song_name").index(this);
+        let artist = $("#artist_id").val();
+        var song = document.getElementsByName("track")[i].textContent;
+        defer.resolve(song);
+        $.getJSON(musix_api_url + 'matcher.lyrics.get?format=jsonp&callback=?&q_track='
+            + song + '&q_artist=' + artist + '&apikey=' + client_id_misix,
+            function (data) {
+                console.log(data);
+                let lyrics_body = data["message"]["body"]["lyrics"]["lyrics_body"].split("...")[0];
+                let cleaned = lyrics_body.replace(/\r?\n/g, "<br />");
+                $("#show_lyrics").html(`<h4>` + song + `</h4><div id="lyrics">` + cleaned + `</div>`)
+            });
     });
     return defer.promise();
 }
@@ -96,7 +96,7 @@ function googleApiClientReady(song_chosen) {
 function search(song_chosen) {
     let query_article = $("#artist_id").val();
     let request = gapi.client.youtube.search.list({
-        q : song_chosen + ' ' + query_article,
+        q: song_chosen + ' ' + query_article,
         part: 'id',
         type: 'video',
         maxResults: 1
@@ -107,13 +107,13 @@ function search(song_chosen) {
         $("#video-window").html('');
         let video_id = response.result["items"][0]["id"]["videoId"];
         $("#video-window").html(`<h5>Watch the most related video.</h5><iframe width="100%" height="100%" src="https://www.youtube.com/embed/` + video_id +
-        `" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
+            `" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`)
         console.log(video_id);
     })
 }
 
 function fetchLyricsVideoInformation() {
-    getLyrics().then(function(song){googleApiClientReady(song)})
+    getLyrics().then(function (song) { googleApiClientReady(song) })
 }
 
 
@@ -136,17 +136,18 @@ function getRelatedArtists(id) {
         function (data) {
             if (data.message.body.artist_list.length !== 0) {
                 $("#related_artist").html(`<h5>Recommended Artists</h5>`);
-            $(data.message.body.artist_list).each(function () {
-                let related_artist = this.artist.artist_name;
-                $('<ul>' + related_artist + '</ul>').appendTo("#related_artist");
-            })
+                $(data.message.body.artist_list).each(function () {
+                    let related_artist = this.artist.artist_name;
+                    $('<ul>' + related_artist + '</ul>').appendTo("#related_artist");
+                })
             }
             else {
                 $("#related_artist").html(`<h5>Recommended Artists</h5>
                 <p>Data not found in the database.</p>`);
             }
-})}
+        })
+}
 
 function fetchRelatedSongInformation() {
-    getArtistID().then(function(artist_id){getRelatedArtists(artist_id)})
+    getArtistID().then(function (artist_id) { getRelatedArtists(artist_id) })
 }
