@@ -109,15 +109,20 @@ img::-moz-selection {
     bottom: 0;
     right: 0;
     left: 0;
-    padding-top: 13vh;
-    padding-left: 5vw;
-    padding-right: 5vw;
-    padding-bottom: 10vh;
     border-style: initial;
     border-color: initial;
     border-image: initial;
 }
 
+.col-lg-3 {
+    padding-left: 20px;
+    padding-right: 20px
+}
+
+.col-lg-6 {
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
 /*----------------------------------- Nav bar */
 #mainNav .navbar-brand {
@@ -148,11 +153,12 @@ img::-moz-selection {
 }
 
 @media (min-width:992px) {
+
 	#mainNav {
 		padding-top: 5px;
 		padding-bottom: 5px;
 		transition: padding-top .3s, padding-bottom .3s;
-		border: none;
+		border: none
 	}
 	#mainNav .navbar-brand {
 		font-size: 40px;
@@ -171,14 +177,15 @@ img::-moz-selection {
 		padding: 12px 0
 	}
 
-    .circle-photo {
-        width: 250px!important;
-        height: 250px!important
-    }
 }
 
 
 /*-------------------------------------------- Main Page */
+#mainpage{
+  position: relative;
+  min-height: 100vh
+}
+
 .background-field {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 15px 15px;
@@ -256,49 +263,104 @@ overflow-y: scroll;
 
 @media screen and (min-width:0px) and (max-width:480px) {
 .container_c {
-    padding-top: 13vh;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-top: 12vh;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    padding-bottom: 12vh;
+    position: relative;
+    min-height: 100vh
 }
-#aboutme .background {
+#mainpage .background {
     background-attachment: scroll!important
+}
+.col-lg-3 {
+    padding-bottom: 20px
+}
+.col-lg-6 {
+    padding-bottom: 20px
+}
+#mainNav {
+    background-color: #1f1f1f;
 }
 }
 
 @media screen and (min-width:480px) and (max-width:768px) {
 .container_c {
-    padding-top: 13vh;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    padding-top: 12vh;
+    padding-left: 15vw;
+    padding-right: 15vw;
+    padding-bottom: 12vh;
+    position: relative;
+    min-height: 100vh;
+}
+.col-lg-3 {
+    padding-bottom: 20px
+}
+.col-lg-6 {
+    padding-bottom: 20px
+}
+#mainNav {
+    background-color: #1f1f1f;
 }
 }
 
-@media screen and (min-width:768px) and (max-width:1024px) {
+@media screen and (min-width:768px) and (max-width:992px) {
+.container_c {
+    padding-top: 12vh;
+    padding-left: 20vw;
+    padding-right: 20vw;
+    padding-bottom: 13vh;
+    position: relative;
+    min-height: 100vh
+}
+.col-lg-3 {
+    padding-bottom: 20px
+}
+.col-lg-6 {
+    padding-bottom: 20px
+}
+#mainNav {
+    background-color: #1f1f1f;
+}
+}
+
+@media screen and (min-width:992px) and (max-width:1366px) {
 .container_c {
     padding-top: 13vh;
     padding-left: 5vw;
     padding-right: 5vw;
+    padding-bottom: 9vh;
+    position: relative;
+    min-height: 100vh
 }
+#search_result_body2 {
+    height: 240px;
 }
-
-@media screen and (min-width:1024px) and (max-width:1366px) {
-.container_c {
-    padding-top: 13vh;
-    padding-left: 5vw;
-    padding-right: 5vw;
+#lyrics {
+    height: 400px;
 }
 }
 
 @media screen and (min-width: 1366px) and (max-width:2560px) {
 .container_c {
-    padding: 100px 25%;
+    padding-top: 15vh;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    padding-bottom: 13vh;
+    position: relative;
+    min-height: 100vh
+}
+#search_result_body2 {
+    height: 380px;
+}
+#lyrics {
+    height: 500px;
 }
 }
-
 /*-------------------------------------------- Footer */
 
 .footer {
-    position: fixed;
+    position: absolute;
 	padding: 15px 0;
 	text-align: center;
     left: 0;
