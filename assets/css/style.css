@@ -242,7 +242,8 @@ img::-moz-selection {
 }
 
 ul {
-    padding-left: 0px!important
+    padding-left: 0px!important;
+    margin-bottom: 0.5rem!important;;
 }
 
 #lyrics {
@@ -266,7 +267,7 @@ overflow-y: scroll;
     padding-top: 12vh;
     padding-left: 10vw;
     padding-right: 10vw;
-    padding-bottom: 12vh;
+    padding-bottom: 20vh;
     position: relative;
     min-height: 100vh
 }
@@ -282,6 +283,10 @@ overflow-y: scroll;
 #mainNav {
     background-color: #1f1f1f;
 }
+#musixmatch_id {
+  width: 40%;
+  height: auto
+}
 }
 
 @media screen and (min-width:480px) and (max-width:768px) {
@@ -289,7 +294,7 @@ overflow-y: scroll;
     padding-top: 12vh;
     padding-left: 15vw;
     padding-right: 15vw;
-    padding-bottom: 12vh;
+    padding-bottom: 14vh;
     position: relative;
     min-height: 100vh;
 }
@@ -301,6 +306,10 @@ overflow-y: scroll;
 }
 #mainNav {
     background-color: #1f1f1f;
+}
+#musixmatch_id {
+  width: 30%;
+  height: auto
 }
 }
 
@@ -322,6 +331,10 @@ overflow-y: scroll;
 #mainNav {
     background-color: #1f1f1f;
 }
+#musixmatch_id {
+  width: 60%;
+  height: auto
+}
 }
 
 @media screen and (min-width:992px) and (max-width:1366px) {
@@ -339,6 +352,10 @@ overflow-y: scroll;
 #lyrics {
     height: 400px;
 }
+#musixmatch_id {
+  width: 60%;
+  height: auto
+}
 }
 
 @media screen and (min-width: 1366px) and (max-width:2560px) {
@@ -355,6 +372,10 @@ overflow-y: scroll;
 }
 #lyrics {
     height: 500px;
+}
+#musixmatch_id {
+  width: 60%;
+  height: auto
 }
 }
 /*-------------------------------------------- Footer */
