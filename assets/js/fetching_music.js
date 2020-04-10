@@ -1,6 +1,7 @@
 const musix_api_url = 'https://api.musixmatch.com/ws/1.1/'
 const client_id_misix = '0d080d92b5b22fb4c5e349ed087defa8'
-
+const youtube_API = 'AIzaSyDW6KJ1DWJykloq__vRMEXa3Hg4LxqlLAQ'
+const lastFM_API = 'd7b03ea0c367902fbe0146692fa6b15a'
 
 // Auto Complete Artist Name
 function getListOfArtists() {
@@ -48,7 +49,7 @@ function getSongList() {
                 $("#search_result_body1").html(`<p>Error occured. Please try it again.</p>`)
             }
             else {
-                $("#search_result_body1").html(`<h5>Choose a song to get the lyrics.</h5>`);
+                $("#search_result_body1").html(`<h5>Choose a song to get the lyrics & video.</h5>`);
                 $(data.message.body.track_list).each(function () {
                     let track_name = this.track.track_name;
                     $('<li name="track" class="song_name">' + track_name + '</li>').appendTo("#search_result_body2");
@@ -87,7 +88,7 @@ function getLyrics() {
 }
 
 function googleApiClientReady(song_chosen) {
-    gapi.client.setApiKey('AIzaSyDW6KJ1DWJykloq__vRMEXa3Hg4LxqlLAQ');
+    gapi.client.setApiKey(youtube_API);
     gapi.client.load('youtube', 'v3', function () {
         search(song_chosen);
     });
@@ -151,3 +152,18 @@ function getRelatedArtists(id) {
 function fetchRelatedSongInformation() {
     getArtistID().then(function (artist_id) { getRelatedArtists(artist_id) })
 }
+
+function getInfoOfArtistLastFM() {
+    $.getJSON('https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist='+ $("#artist_id").val() +'&api_key='+ lastFM_API + '&format=json',
+        function (data) {
+            $("#artist_info").html(`<h5>Artist Info from Last.FM</h5>`);
+            let artist_listeners = data["artist"]["stats"]["listeners"];
+            let artist_playcounts = data["artist"]["stats"]["playcount"];
+            let artist_url = data["artist"]["url"];
+            let artist_image = data["artist"]["image"][1]["#text"];
+            console.log(data)
+            console.log(artist_url)
+            $("#artist_info").html('<h5>Artist Info from Last.FM</h5><div><div><p>In last.FM, there are... <br><b>' + artist_listeners + 
+            ' </b>listeners<br><b>' + artist_playcounts + ' </b>playcounts</p><a href="' + artist_url + '" target=”_blank”>Visit Artist Page in last.FM</a>');
+            })
+        }
