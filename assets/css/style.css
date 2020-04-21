@@ -5,7 +5,7 @@ body {
     background-attachment: fixed;
     background-image:  url(../images/background.jpg);
     background-repeat: no-repeat;
-	font-family: 'Baloo Paaji 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    font-family: 'Baloo Paaji 2', cursive!important;
 }
 
 p {
@@ -68,10 +68,6 @@ img::selection {
 
 img::-moz-selection {
 	background: 0 0
-}
-
-.btn {
-	font-weight: 1000
 }
 
 .btn-primary {
@@ -190,10 +186,6 @@ img::-moz-selection {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 15px 15px;
     border-radius: 15px;
-}
-
-#artist_search {
-    margin-right: 10px
 }
 
 #artist_id {
@@ -401,7 +393,6 @@ overflow-y: scroll;
     color: #fed136;
 	line-height: 30px;
 	text-transform: none;
-	font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
 .footer ul.quicklinks {
@@ -409,7 +400,6 @@ overflow-y: scroll;
 	line-height: 40px;
 	margin-bottom: 0;
 	text-transform: none;
-	font-family: Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'
 }
 
 ul.social-buttons {
