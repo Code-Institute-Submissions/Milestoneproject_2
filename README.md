@@ -3,7 +3,7 @@
 
 [Live demo](https://asunamasuda.github.io/Milestoneproject_2/) is available here.
 
-<p align="center"><img src = "https://github.com/AsunaMasuda/Milestoneproject_2/blob/master/images/README/Webpage-screenshot.png" width=700></p>
+<p align="center"><img src = "https://github.com/AsunaMasuda/Milestoneproject_2/blob/master/assets/images/README/Webpage-screenshot.png?raw=true" width=700></p>
 
 ## Table of Contents
 
@@ -25,6 +25,9 @@
 4. [Technologies Used](#technologies-used)
 
 5. [Testing](#testing)
+    - [Manual Testing](#manual-testing)
+    - [How User Stories Needs Were Met](#how-user-stories-needs-were-met)
+    - [Bugs](#bugs)
 
 6. [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
@@ -54,7 +57,7 @@ The deveoper's Goals were:
 - Gain the practical skills of how to handle RESTful API and its related JavaScript technologies (Asynchronous Operations)
 
 ## User Stories
-As a visiter to [Musical Quest](https://asunamasuda.github.io/Milestoneproject_2/) I want to:
+As a visiter to [Musical Quest](https://asunamasuda.github.io/Milestoneproject_2/) I'd want to:
 - Search and select a song within the site without any stress and hassle
 - Have a nice and experience in user interface, such as beautiful graphics, consistent designs, responsive layouts and suited fonts
 
@@ -95,21 +98,23 @@ Wireframes were created with [balsamiq](https://balsamiq.com/).
 3. Bootstrap (v4.4.1)
 4. JavaScript (JQuery, JQuery-UI)
 5. Git/GitHub
+6. Gitpod
 
 # Testing
-1) I used [FREEFORMATTER.COM](https://www.freeformatter.com/) for validating HTML/CSS/JaveScript code. 
+### Validation Tools
+- [FREEFORMATTER.COM](https://www.freeformatter.com/) for validating HTML/CSS/JaveScript code. 
 
-List the websites you used to validate your code and what they are for.
-2) Go through the user stories you wrote in the UX part of your readme, and explain how your website meets those needs.
-3) 
-
-Write about how each part of your responsive website behaves on different screen sizes.
-And if you want to knock the grade for testing all the way up to the max:
+### Manual Testing
 4) Manually go though every part of your site and write out how you confirmed that each link, hover effect and other interactive parts of the site work as you expect.
-5) List any bugs you came across while creating the site and while testing it. Include the fixes you came up with. (I have two sections here, one for fixed bugs and one for bugs I have not found a solution for yet.)
+
+### Bugs
+List any bugs you came across while creating the site and while testing it. Include the fixes you came up with. (I have two sections here, one for fixed bugs and one for bugs I have not found a solution for yet.)
+
+### How User Stories Needs Were Met
+- This webpage supports autocomplete when visiters type artist name and also provide seamless experiences by dynamic and interactive interfaces by JQuery. With these usability, visitera can explore this site without hassle. 
 
 # Deployment
-To deploy this page to GitHub Pages from my[GitHub repository](https://github.com/AsunaMasuda/Milestoneproject_2), the following steps were taken: 
+To deploy this page to GitHub Pages from my [GitHub repository](https://github.com/AsunaMasuda/Milestoneproject_2), the following steps were taken: 
 1. Log into GitHub. 
 2. From the list of repositories on the screen, select **AsunaMasuda/Milestoneproject_2**.
 3. From the menu items near the top of the page, select **Settings**.
@@ -130,14 +135,24 @@ To clone this project from GitHub:
 # Credits
 
 ## Content
-To be updated
+- All text within this project was written by the developer.
 
 ## Media
 ### Icons
-- 
+- The icons were provided by [Font Awesoms](https://fontawesome.com/)
 
 ### Background Photos
 - Background image Photo by Nainoa Shizuru on Unsplash
 
+### API
+- [Musixmatch](https://www.musixmatch.com/) for lyrics
+- [Last.FM](https://www.last.fm/home) for listners, playcounts and a link to the artist page
+- [Youtube API](https://developers.google.com/youtube/v3) for music video
+
 ## Acknowledgements
-To be updated
+I gained a deeper understanding about REST APIs from this article: [Understanding And Using REST APIs](https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/).
+
+I also gained a better understanding of Ajax, Async, Callback  and Promises in JavaScript from this article: [Ajax — Async, Callback & Promise](https://medium.com/front-end-weekly/ajax-async-callback-promise-e98f8074ebd7).
+
+Thanks to:
+My Code Institute Mentor Guido Cecilio Garcia Bernal for his advise throughout the development process.
