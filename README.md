@@ -102,7 +102,9 @@ Wireframes were created with [balsamiq](https://balsamiq.com/).
 
 # Testing
 ### Validation Tools
-- [FREEFORMATTER.COM](https://www.freeformatter.com/) for validating HTML/CSS/JaveScript code. 
+- HTML: [W3C HTML Validator](https://validator.w3.org/)
+- CSS: [W3C CSS validator](https://jigsaw.w3.org/css-validator/)
+- JavaScript: [JSHint](https://jshint.com/)
 
 ### Manual Testing
 4) Manually go though every part of your site and write out how you confirmed that each link, hover effect and other interactive parts of the site work as you expect.
