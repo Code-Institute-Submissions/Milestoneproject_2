@@ -9,8 +9,9 @@ function getListOfArtists() {
     $.getJSON(musix_api_url + 'artist.search?format=jsonp&callback=?&page_size=10&q_artist=' + $("#artist_id").val() + '&apikey=' + client_id_misix,
         function (data) {
             let list_can = [];
-            for (var i = 0; i < 11; i++) {
-                var candidate = data["message"]["body"]["artist_list"][i]["artist"]["artist_name"];
+            let artistList = data.message.body.artist_list;
+            for (var i = 0; i < artistList.length; i++) {
+                var candidate = artistList[i]["artist"]["artist_name"];
                 list_can.push(candidate);
                 defer.resolve(list_can);
             }
@@ -20,6 +21,10 @@ function getListOfArtists() {
 
 var selectItem = $("#artist_id").val();
 
+/**
+ * 
+ * @param {*} list 
+ */
 function showListOfArtists(list) {
     $("#artist_id").autocomplete({
         source: list,
