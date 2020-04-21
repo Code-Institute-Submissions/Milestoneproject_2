@@ -1,6 +1,6 @@
 const musix_api_url = 'https://api.musixmatch.com/ws/1.1/'
 const client_id_misix = '0d080d92b5b22fb4c5e349ed087defa8'
-const youtube_API = 'AIzaSyDW6KJ1DWJykloq__vRMEXa3Hg4LxqlLAQ'
+const youtube_API = 'AIzaSyAdXwgHUraNeXJ22jYuc2WFTMvRRo89CQE'
 const lastFM_API = 'd7b03ea0c367902fbe0146692fa6b15a'
 
 // Auto Complete Artist Name
