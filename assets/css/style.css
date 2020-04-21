@@ -224,7 +224,8 @@ img::-moz-selection {
 }
 
 .song_name:hover {
-	color: #fed136
+	color: #fed136;
+    cursor: pointer
 }
 
 #search_result_body1 {
