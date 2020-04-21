@@ -9,15 +9,15 @@
 
 1. [UX](#ux)
     - [Goals](#goals)
-        - [Visiter's Goals](#visitor-goals)
-        - [Developer's Goals](#developer-goals)
+        - [Visiter's Goals](#visiter's-goals)
+        - [Developer's Goals](#developer's-goals)
     - [User Stories](#user-stories)
     - [Design Choices](#design-choices)
     - [Wireframes](#wireframes)
 
 2. [Features](#features)
     - [Existing Features](#existing-features)
-        - [Song Search & Result](#song-search)
+        - [Song Search & Result](#song-search-&-result)
         - [Lyrics](#lyrics)
         - [Artist Information](#artist-information)
     - [Features Left to Implement](#features-left-to-implement)
@@ -117,8 +117,8 @@ To deploy this page to GitHub Pages from my[GitHub repository](https://github.co
 5. Under **Source**, click the drop-down menu labelled **None** and select **Master Branch**.
 6. On selecting Master Branch, the page is automatically refreshed, the website is now deployed. 
 7. Scroll back down to the **GitHub Pages** section to retrieve the link to the deployed website.
-​
-### How to run this project locally
+
+## Local Deployment
 To clone this project from GitHub:
 1. At the top of this repository, click the green button **Clone or download**.
 2. In the Clone with HTTPs section, copy the clone URL for the repository. 
