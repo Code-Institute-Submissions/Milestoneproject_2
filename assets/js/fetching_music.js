@@ -82,9 +82,18 @@ function getLyrics() {
         $.getJSON(musixApiUrl + 'matcher.lyrics.get?format=jsonp&callback=?&q_track='
             + song + '&q_artist=' + artist + '&apikey=' + clientIdMisix,
             function (data) {
-                let lyrics_body = data["message"]["body"]["lyrics"]["lyrics_body"].split("...")[0];
-                let cleaned = lyrics_body.replace(/\r?\n/g, "<br />");
-                $("#show_lyrics").html(`<h4>` + song + `</h4><div id="lyrics">` + cleaned + `</div>`)
+                if (data.message.header.status_code == 200) {
+                    console.log(data)
+                    let lyrics_body = data["message"]["body"]["lyrics"]["lyrics_body"].split("...")[0];
+                    let cleaned = lyrics_body.replace(/\r?\n/g, "<br />");
+                    $("#show_lyrics").html(`<h4>` + song + `</h4><div id="lyrics">` + cleaned + `</div>`)
+                }
+                else if (data.message.header.status_code == 404) {
+                    $("#show_lyrics").html(`<h5>Lyrics data was not found in musixmatch database. Please choose a different song or search another artist.</h5>`)
+                }
+                else {
+                    $("#show_lyrics").html(`<h5>Error occured. Please try it again or choose a different song.</h5>`)
+                }
             });
     });
     return defer.promise();
@@ -146,7 +155,7 @@ function getRelatedArtists(id) {
             }
             else {
                 $("#related_artist").html(`<h5>Recommended Artists</h5>
-                <p>Data not found in the database.</p>`);
+                <p>Data not found in musixmatch database.</p>`);
             }
         })
 }
@@ -160,14 +169,13 @@ function getInfoOfArtistLastFM() {
     $("#artist_info").html('');
     $.getJSON('https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=' + artist + '&api_key=' + lastFMAPI + '&format=json',
         function (data) {
-            console.log(data)
             if (data.error == 6) {
                 $("#artist_info").html('<h5>Artist Information from Last.FM</h5><p>There is no artist data about ' + artist + ' in  Last.FM</p>');
             }
             else {
-            let artistUrl = data["artist"]["url"];
-            let artistListeners = data["artist"]["stats"]["listeners"];
-            let artistPlaycounts = data["artist"]["stats"]["playcount"];
+                let artistUrl = data["artist"]["url"];
+                let artistListeners = data["artist"]["stats"]["listeners"];
+                let artistPlaycounts = data["artist"]["stats"]["playcount"];
                 $("#artist_info").html('<h5>Artist Information from Last.FM</h5><div><div><p>In last.FM, there are... <br><b>' + artistListeners +
                     ' </b>listeners<br><b>' + artistPlaycounts + ' </b>playcounts</p><a href="' + artistUrl + '" target=”_blank”>Visit Artist Page in last.FM</a>');
             }
