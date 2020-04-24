@@ -36,33 +36,33 @@
 
 # UX
 ## Goals
-The goal of this website is to let visiters to enjoy exploring their favorite song's lyrics, while listening to the song. 
+The goal of this website is to enable visitors to read their favorite song's lyrics, while listening to the song. 
 
-### Visiter's Goals
-Visiter's goals are:
-- Explore various songs and its lyrics
+### Visitor's Goals
+Visitor's goals are:
+- Explore various songs and their lyrics
 - Watch the video of the song they chose for lyrics
 - Gain interesting facts related to the artist they searched
 
 [Musical Quest](https://asunamasuda.github.io/Milestoneproject_2/) met this goal by:
 - Intuitive and inductive search function 
-- Automatically display the lyrics and the video after the visiter clicked the song name
+- Automatically display the lyrics and the video after the visitor clicked the song name
 - Provide Recommended Artists powered by musixmatch and Numbers of listeners and playcounts provided by Last.FM. 
 
 ### Developer's Goals
-The deveoper's Goals were:
+The developer's Goals were:
 - Get better understanding of JavaScript and JQuery
-- Gain the practical skills of how to handle RESTful API and its related JavaScript technologies (Asynchronous Operations)
+- Gain the practical skills for handling RESTful API and its related JavaScript technologies (Asynchronous Operations)
 
 ## User Stories
-As a visiter to [Musical Quest](https://asunamasuda.github.io/Milestoneproject_2/) I'd want to:
+As a visitor to [Musical Quest](https://asunamasuda.github.io/Milestoneproject_2/) I'd want to:
 - Search and select a song within the site without any stress and hassle
-- Have a nice and experience in user interface, such as beautiful graphics, consistent designs, responsive layouts and suited fonts
+- Have a nice experience in the user interface, such as beautiful graphics, consistent designs, responsive layouts and suitable fonts
 
 ## Design Choices
 Music Quest was designed with hassle-free and intuitive use in mind:
 - It utilises a background picture of a music concert and the font colors were chosen to match the color in the picture
-- Visiters who use a desktop PC or a laptop don't need any scrolling to see all the content 
+- Visitors who use a desktop PC or a laptop don't need to scroll to see all the content 
 
 ## Wireframes
 Wireframes were created with [balsamiq](https://balsamiq.com/).
@@ -75,16 +75,16 @@ Wireframes were created with [balsamiq](https://balsamiq.com/).
 - The search features an autocomplete for the artist name pulled from musixmatch API.
 - The result section returns the first 15 songs ordered by the populality.
 - "Load More" feature feeds the next 15 results.
-- It automatically refreshes search results if visiters press the search button with a different artist name. 
+- It automatically refreshes search results if visitors press the search button with a different artist name. 
 
 ### Lyrics
-- It desplays the selected song title and its lyrics.
+- It displays the selected song title and its lyrics.
 - The lyrics are formatted to make it easy to read.
 
 ### Artist Information
-- At the top, It returns three recommended artists that visiters might like which are chosen by searched artist. This feature is powered by musixmatch.
-- At the middle, It provides the number of listeners and playcounts by the searched artist in Last.FM. 
-- At the bottom, It displays a Youtube Video relating the song selected. This feature is powered by Youtube API. 
+- At the top, it returns three recommended artists that visitors might like which are chosen by searched artist. This feature is powered by musixmatch.
+- In the middle, it provides the number of listeners and playcounts by the searched artist in Last.FM. 
+- At the bottom, it displays a Youtube Video related to the song selected. This feature is powered by Youtube API. 
 
 ## Features Left to Implement
 - Split the current JavaScript codes to front-end and back-end features accordingly
