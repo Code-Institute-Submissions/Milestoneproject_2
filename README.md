@@ -9,15 +9,15 @@
 
 1. [UX](#ux)
     - [Goals](#goals)
-        - [Visiter's Goals](#visiter's-goals)
-        - [Developer's Goals](#developer's-goals)
+        - [Visiter Goals](#visiters-goals)
+        - [Developer Goals](#developers-goals)
     - [User Stories](#user-stories)
     - [Design Choices](#design-choices)
     - [Wireframes](#wireframes)
 
 2. [Features](#features)
     - [Existing Features](#existing-features)
-        - [Song Search & Result](#song-search-&-result)
+        - [Song Search and Result](#song-search-and-result)
         - [Lyrics](#lyrics)
         - [Artist Information](#artist-information)
     - [Features Left to Implement](#features-left-to-implement)
@@ -36,14 +36,12 @@
 
 # UX
 ## Goals
-The goal of this website is to let visiters to enjoy exploring their favorite song's lyrics, with listening to the song. 
+The goal of this website is to let visiters to enjoy exploring their favorite song's lyrics, while listening to the song. 
 
 ### Visiter's Goals
-This website is created for people who like to learn lyrics while listening to the music.
-
 Visiter's goals are:
-- Explore various songs and their lyrics
-- Listen and watch the video of the song they chose for lyrics
+- Explore various songs and its lyrics
+- Watch the video of the song they chose for lyrics
 - Gain interesting facts related to the artist they searched
 
 [Musical Quest](https://asunamasuda.github.io/Milestoneproject_2/) met this goal by:
@@ -73,7 +71,7 @@ Wireframes were created with [balsamiq](https://balsamiq.com/).
 # Features
 
 ## Existing Features
-### Song Search & Result
+### Song Search and Result
 - The search features an autocomplete for the artist name pulled from musixmatch API.
 - The result section returns the first 15 songs ordered by the populality.
 - "Load More" feature feeds the next 15 results.
@@ -110,8 +108,7 @@ Wireframes were created with [balsamiq](https://balsamiq.com/).
 I created [a testing matrix](https://github.com/AsunaMasuda/Milestoneproject_2/blob/master/assets/images/README/testing_trix.png) to make sure the site works as expected in different devices, browsers and screen sizes.
 
 ### Bugs
-- Safari: The background image takes time to load.
-- Firefox: The bullet points in the search result section were supposed to be invisible, but [it was disabled](https://github.com/AsunaMasuda/Milestoneproject_2/blob/master/assets/images/README/a_bug_in_Firefox.png).
+- Firefox: The bullet points in the search result section were invisible in the other browsers, but [it was visible on Firefox](https://github.com/AsunaMasuda/Milestoneproject_2/blob/master/assets/images/README/a_bug_in_Firefox.png). So I fixed this by adding `list-style: none;`.
 
 ### How User Stories Needs Were Met
 - This webpage supports autocomplete when visiters type artist name and also provide seamless experiences by dynamic and interactive interfaces by JQuery. With these usability, visitera can explore this site without hassle. 
