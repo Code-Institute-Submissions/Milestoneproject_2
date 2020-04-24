@@ -178,7 +178,7 @@ function fetchLyricsVideoInformation() {
 
 // Recommended Artists
 /**
- * This function gets artist ID that is going to be used for searching recommended artists.
+ * This function gets artist ID that is going to be used for searching recommended artists in getRelatedArtists()
  * @constructor
  */
 function getArtistID() {
@@ -193,7 +193,7 @@ function getArtistID() {
 }
 
 /**
- * This function gets three recommended artists selected by the artist ID with musixmatch API
+ * This function gets three recommended artists selected by the artist ID gained by the function getArtistID()
  * @constructor
  */
 function getRelatedArtists(id) {
@@ -248,7 +248,7 @@ function getInfoOfArtistLastFM() {
 }
 
 /**
- * This function implements three different functions and it's used when the search button is clicked. 
+ * This function implements three different functions and it's implemented when the search button is clicked. 
  * @constructor
  */
 function onClickSearch() {
