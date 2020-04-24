@@ -3,6 +3,11 @@ const clientIdMisix = '0d080d92b5b22fb4c5e349ed087defa8'
 const youtubeAPI = 'AIzaSyAdXwgHUraNeXJ22jYuc2WFTMvRRo89CQE'
 const lastFMAPI = 'd7b03ea0c367902fbe0146692fa6b15a'
 
+// Autocomplete
+/**
+ * Returns a list of artist names by keyword typed in #artist input form.
+ * @constructor
+ */
 function getListOfArtists() {
     let defer = new $.Deferred();
     $.getJSON(musixApiUrl + 'artist.search?format=jsonp&callback=?&page_size=10&q_artist=' + $("#artist").val() + '&apikey=' + clientIdMisix,
@@ -20,6 +25,11 @@ function getListOfArtists() {
 
 var selectItem = $("#artist").val();
 
+/**
+ * Autocomplete function.
+ * @constructor
+ * @param {string} list - list for autocomplete
+ */
 function showListOfArtists(list) {
     $("#artist").autocomplete({
         source: list,
@@ -28,23 +38,36 @@ function showListOfArtists(list) {
     });
 }
 
+/**
+ * Implements firstly getListOfArtists() and secondly showListOfArtists() 
+ * @constructor
+ */
 function getListOfAutocomplete() {
-    getListOfArtists().then(function (list_artist) { showListOfArtists(list_artist);
-});
+    getListOfArtists().then(function (list_artist) {
+        showListOfArtists(list_artist);
+    });
 }
 
 
 // Search Result Section
+/**
+ * Make the result section blank everytime when the search button is pressed
+ * @constructor
+ */
 var pageNum = 1;
 function fetchArtistInformation() {
     $("#search_result_body2").html('');
     getSongList();
 }
 
+/**
+ * Gets a list of songs by the searched artists.
+ * @constructor
+ */
 function getSongList() {
     var artist = $("#artist").val();
     $.getJSON(musixApiUrl + 'track.search?format=jsonp&callback=?&q_artist='
-+ artist + '&f_has_lyrics=true&s_track_rating=desc&page_size=15&page=' + pageNum + '&apikey=' + clientIdMisix,
+        + artist + '&f_has_lyrics=true&s_track_rating=desc&page_size=15&page=' + pageNum + '&apikey=' + clientIdMisix,
         function (data) {
             if (data.message.header.status_code !== 200) {
                 $("#search_result_body1").html(`<p>Error occured. Please try it again.</p>`);
@@ -64,6 +87,10 @@ function getSongList() {
     );
 }
 
+/**
+ * Loads one more set of songs by a click
+ * @constructor
+ */
 function loadmore() {
     $("#hide").remove();
     pageNum++;
@@ -71,7 +98,11 @@ function loadmore() {
 }
 
 
-// Retrieving Lyrics & Get Youtube video
+// Gets Lyrics & Get Youtube video
+/**
+ * Gets lyrics with the song selected, using musixmatch API
+ * @constructor
+ */
 function getLyrics() {
     let defer = new $.Deferred();
     $('body').on('click', '.song_name', function () {
@@ -98,6 +129,11 @@ function getLyrics() {
     return defer.promise();
 }
 
+/**
+ * Loads the client interface for the YouTube API.
+ * @constructor
+ * @param {string} songChosen - a song name which is selected 
+ */
 function googleApiClientReady(songChosen) {
     gapi.client.setApiKey(youtubeAPI);
     gapi.client.load('youtube', 'v3', function () {
@@ -105,6 +141,11 @@ function googleApiClientReady(songChosen) {
     });
 }
 
+/**
+ * Search Youtube video by Youtube API using the artist name and the selected song.
+ * @constructor
+ * @param {string} songChosen - a song name which is selected 
+ */
 function search(songChosen) {
     let queryArticle = $("#artist").val();
     let request = gapi.client.youtube.search.list({
@@ -123,12 +164,20 @@ function search(songChosen) {
     });
 }
 
+/**
+ * Implements firstly getLyrics() and secondly googleApiClientReady()
+ * @constructor
+ */
 function fetchLyricsVideoInformation() {
     getLyrics().then(function (song) { googleApiClientReady(song) });
 }
 
 
 // Recommended Artists
+/**
+ * Gets artist ID that is used for searching recommended artists
+ * @constructor
+ */
 function getArtistID() {
     let defer = new $.Deferred();
     let artist = $("#artist").val();
@@ -141,6 +190,10 @@ function getArtistID() {
     return defer.promise();
 }
 
+/**
+ * Gets three recommended artists selected by the artist ID with musixmatch API
+ * @constructor
+ */
 function getRelatedArtists(id) {
     $.getJSON(musixApiUrl + 'artist.related.get?format=jsonp&callback=?&artist_id=' + id +
         '&page_size=3&page=1&apikey=' + clientIdMisix,
@@ -159,11 +212,20 @@ function getRelatedArtists(id) {
         });
 }
 
+/**
+ * Implements firstly getArtistID() and secondly getRelatedArtists()
+ * @constructor
+ */
 function fetchRelatedSongInformation() {
-    getArtistID().then(function (artistId) { 
-      getRelatedArtists(artistId); });
+    getArtistID().then(function (artistId) {
+        getRelatedArtists(artistId);
+    });
 }
 
+/**
+ * Gets listners, playcounts and artist URL with the searched artist name with Last.FM API
+ * @constructor
+ */
 function getInfoOfArtistLastFM() {
     let artist = $("#artist").val();
     $("#artist_info").html('');

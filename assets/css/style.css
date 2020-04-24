@@ -112,7 +112,7 @@ img::-moz-selection {
 
 .col-lg-3 {
     padding-left: 20px;
-    padding-right: 20px
+    padding-right: 20px;
 }
 
 .col-lg-6 {
@@ -124,14 +124,14 @@ img::-moz-selection {
 #mainNav .navbar-brand {
 	color: #fed136;
     font-family: 'Bellota', cursive;
-    font-size: 2.0em
+    font-size: 2.0em;
 }
 
 #mainNav .navbar-brand.active,
 #mainNav .navbar-brand:active,
 #mainNav .navbar-brand:focus,
 #mainNav .navbar-brand:hover {
-	color: #fec503
+	color: #fec503;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link {
@@ -145,7 +145,7 @@ img::-moz-selection {
 
 #mainNav .navbar-nav .nav-item .nav-link.active,
 #mainNav .navbar-nav .nav-item .nav-link:hover {
-	color: #fed136
+	color: #fed136;
 }
 
 @media (min-width:992px) {
@@ -154,11 +154,11 @@ img::-moz-selection {
 		padding-top: 5px;
 		padding-bottom: 5px;
 		transition: padding-top .3s, padding-bottom .3s;
-		border: none
+		border: none;
 	}
 	#mainNav .navbar-brand {
 		font-size: 40px;
-		transition: all .3s
+		transition: all .3s;
 	}
 	#mainNav .navbar-nav .nav-item .nav-link {
 		padding: 1.1em 1em!important
@@ -166,11 +166,11 @@ img::-moz-selection {
 	#mainNav.navbar-shrink {
 		padding-top: 0;
 		padding-bottom: 0;
-		background-color: #fed136
+		background-color: #fed136;
 	}
 	#mainNav.navbar-shrink .navbar-brand {
 		font-size: 1.25em;
-		padding: 12px 0
+		padding: 12px 0;
 	}
 
 }
@@ -179,7 +179,7 @@ img::-moz-selection {
 /*-------------------------------------------- Main Page */
 #mainpage{
   position: relative;
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 .background-field {
@@ -189,7 +189,7 @@ img::-moz-selection {
 }
 
 #artist_id {
-    margin-bottom: 8px
+    margin-bottom: 8px;
 }
 
 .ui-autocomplete {
@@ -208,16 +208,17 @@ img::-moz-selection {
 }
 
 #search_param {
-    margin-bottom: 20px
+    margin-bottom: 20px;
 }
 
 .song_name {
-    color:#0f215f
+    color:#0f215f;
+    list-style: none;
 }
 
 .song_name:hover {
 	color: #fed136;
-    cursor: pointer
+    cursor: pointer;
 }
 
 #search_result_body1 {
