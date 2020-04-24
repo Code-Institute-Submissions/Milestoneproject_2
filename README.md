@@ -1,5 +1,5 @@
 # Musical Quest
-[Musical Quest](https://asunamasuda.github.io/Milestoneproject_2/) is a lyrics and youtube video search where you can explore the world's largest catalog of song lyrics and related artist information powered by Musixmatch API, LastFM API and Youtube API. 
+[Musical Quest](https://asunamasuda.github.io/Milestoneproject_2/) is a lyrics and youtube video search where you can explore the world's largest catalog of song lyrics and related artist information powered by Musixmatch API, LastFM API and Youtube API.
 
 [Live demo](https://asunamasuda.github.io/Milestoneproject_2/) is available here.
 
@@ -26,8 +26,8 @@
 
 5. [Testing](#testing)
     - [Manual Testing](#manual-testing)
-    - [How User Stories Needs Were Met](#how-user-stories-needs-were-met)
     - [Bugs](#bugs)
+    - [How User Stories Needs Were Met](#how-user-stories-needs-were-met)
 
 6. [Deployment](#deployment)
     - [Local Deployment](#local-deployment)
