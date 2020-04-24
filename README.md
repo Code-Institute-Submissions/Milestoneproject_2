@@ -9,8 +9,8 @@
 
 1. [UX](#ux)
     - [Goals](#goals)
-        - [Visiter Goals](#visiters-goals)
-        - [Developer Goals](#developers-goals)
+        - [Visitor's Goals](#visitors-goals)
+        - [Developer's Goals](#developers-goals)
     - [User Stories](#user-stories)
     - [Design Choices](#design-choices)
     - [Wireframes](#wireframes)
@@ -111,7 +111,7 @@ I created [a testing matrix](https://github.com/AsunaMasuda/Milestoneproject_2/b
 - Firefox: The bullet points in the search result section were invisible in the other browsers, but [it was visible on Firefox](https://github.com/AsunaMasuda/Milestoneproject_2/blob/master/assets/images/README/a_bug_in_Firefox.png). So I fixed this by adding `list-style: none;`.
 
 ### How User Stories Needs Were Met
-- This webpage supports autocomplete when visiters type artist name and also provide seamless experiences by dynamic and interactive interfaces by JQuery. With these usability, visitera can explore this site without hassle. 
+- This webpage supports autocomplete when visiters type artist name and also provide seamless experiences by dynamic and interactive interfaces by JQuery. With these usabilities, visitors can explore this site without hassle. 
 
 # Deployment
 To deploy this page to GitHub Pages from my [GitHub repository](https://github.com/AsunaMasuda/Milestoneproject_2), the following steps were taken: 
