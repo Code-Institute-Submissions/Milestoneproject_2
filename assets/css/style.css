@@ -3,7 +3,7 @@ body {
 	overflow-x: hidden;
     background-size: cover;
     background-attachment: fixed;
-    background-image:  url(../images/background.jpg);
+    background-image:  url(../images/downsized_background.jpg);
     background-repeat: no-repeat;
     font-family: 'Baloo Paaji 2', cursive!important;
 }
@@ -255,7 +255,7 @@ overflow-y: scroll;
 }
 
 #related_artist, #artist_info {
-    padding-bottom: 25px
+    padding-bottom: 10px
 }
 
 
@@ -342,7 +342,7 @@ overflow-y: scroll;
     padding-top: 13vh;
     padding-left: 5vw;
     padding-right: 5vw;
-    padding-bottom: 9vh;
+    padding-bottom: 13vh;
     position: relative;
     min-height: 100vh
 }
@@ -351,6 +351,9 @@ overflow-y: scroll;
 }
 #lyrics {
     height: 400px;
+}
+#mainNav {
+    background-color: #1f1f1f;
 }
 #musixmatch_id {
   width: 60%;
