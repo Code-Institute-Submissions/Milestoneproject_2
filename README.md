@@ -107,10 +107,11 @@ Wireframes were created with [balsamiq](https://balsamiq.com/).
 - JavaScript: [JSHint](https://jshint.com/)
 
 ### Manual Testing
-4) Manually go though every part of your site and write out how you confirmed that each link, hover effect and other interactive parts of the site work as you expect.
+I created [a testing matrix](https://github.com/AsunaMasuda/Milestoneproject_2/blob/master/assets/images/README/testing_trix.png) to make sure the site works as expected in different devices, browsers and screen sizes.
 
 ### Bugs
-List any bugs you came across while creating the site and while testing it. Include the fixes you came up with. (I have two sections here, one for fixed bugs and one for bugs I have not found a solution for yet.)
+- Safari: The background image takes time to load.
+- Firefox: The bullet points in the search result section were supposed to be invisible, but [it was disabled](https://github.com/AsunaMasuda/Milestoneproject_2/blob/master/assets/images/README/a_bug_in_Firefox.png).
 
 ### How User Stories Needs Were Met
 - This webpage supports autocomplete when visiters type artist name and also provide seamless experiences by dynamic and interactive interfaces by JQuery. With these usability, visitera can explore this site without hassle. 
