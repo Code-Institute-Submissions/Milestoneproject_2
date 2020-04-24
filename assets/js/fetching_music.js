@@ -8,6 +8,7 @@ let artistsName = "";
 // Autocomplete
 /**
  * Returns a list of artist names by keyword typed in #artist input form.
+ * This list is used for the autocomple function called showListOfArtists().
  * @constructor
  */
 function getListOfArtists(queryString) {
@@ -26,7 +27,7 @@ function getListOfArtists(queryString) {
 }
 
 /**
- * Autocomplete function.
+ * This is the autocomplete function.
  * @constructor
  * @param {string} list - list for autocomplete
  */
@@ -39,7 +40,7 @@ function showListOfArtists(list) {
 }
 
 /**
- * Implements firstly getListOfArtists() and secondly showListOfArtists() 
+ * This funcition implements firstly getListOfArtists() and secondly showListOfArtists().
  * @constructor
  */
 function getListOfAutocomplete(event) {
@@ -52,7 +53,7 @@ function getListOfAutocomplete(event) {
 
 // Search Result Section
 /**
- * Make the result section blank everytime when the search button is pressed
+ * This function refresh the result section to be blank everytime the search button is pressed.
  * @constructor
  */
 var pageNum = 1;
@@ -62,7 +63,7 @@ function fetchArtistInformation() {
 }
 
 /**
- * Gets a list of songs by the searched artists.
+ * This function gets a list of songs by the searched artists and desplays them to the search result section.
  * @constructor
  */
 function getSongList() {
@@ -89,7 +90,7 @@ function getSongList() {
 }
 
 /**
- * Loads one more set of songs by a click
+ * This function loads one more set of songs by a click
  * @constructor
  */
 function loadmore() {
@@ -101,7 +102,8 @@ function loadmore() {
 
 // Gets Lyrics & Get Youtube video
 /**
- * Gets lyrics with the song selected, using musixmatch API
+ * This function gets lyrics with the song selected, using musixmatch API.
+ * Also, this function desplays the lyrics on the lyrics section which is at the center of a screen.
  * @constructor
  */
 function getLyrics() {
@@ -131,7 +133,7 @@ function getLyrics() {
 }
 
 /**
- * Loads the client interface for the YouTube API.
+ * This function loads the client interface for the YouTube API.
  * @constructor
  * @param {string} songChosen - a song name which is selected 
  */
@@ -143,7 +145,8 @@ function googleApiClientReady(songChosen) {
 }
 
 /**
- * Search Youtube video by Youtube API using the artist name and the selected song.
+ * This function searches Youtube video by Youtube API using the artist name and the selected song.
+ * Also, it makes the video appear on the video section. 
  * @constructor
  * @param {string} songChosen - a song name which is selected 
  */
@@ -165,7 +168,7 @@ function search(songChosen) {
 }
 
 /**
- * Implements firstly getLyrics() and secondly googleApiClientReady()
+ * This function implements firstly getLyrics() and secondly googleApiClientReady().
  * @constructor
  */
 function fetchLyricsVideoInformation() {
@@ -175,7 +178,7 @@ function fetchLyricsVideoInformation() {
 
 // Recommended Artists
 /**
- * Gets artist ID that is used for searching recommended artists
+ * This function gets artist ID that is going to be used for searching recommended artists.
  * @constructor
  */
 function getArtistID() {
@@ -190,7 +193,7 @@ function getArtistID() {
 }
 
 /**
- * Gets three recommended artists selected by the artist ID with musixmatch API
+ * This function gets three recommended artists selected by the artist ID with musixmatch API
  * @constructor
  */
 function getRelatedArtists(id) {
@@ -211,7 +214,7 @@ function getRelatedArtists(id) {
 }
 
 /**
- * Implements firstly getArtistID() and secondly getRelatedArtists()
+ * This implements firstly getArtistID() and secondly getRelatedArtists().
  * @constructor
  */
 function fetchRelatedSongInformation() {
@@ -221,7 +224,8 @@ function fetchRelatedSongInformation() {
 }
 
 /**
- * Gets listners, playcounts and artist URL with the searched artist name with Last.FM API
+ * This function gets listners, playcounts and artist URL with the searched artist name with Last.FM API.
+ * Also it lets them appear in artist information section.
  * @constructor
  */
 function getInfoOfArtistLastFM() {
@@ -244,7 +248,7 @@ function getInfoOfArtistLastFM() {
 }
 
 /**
- * Gets listners, playcounts and artist URL with the searched artist name with Last.FM API
+ * This function implements three different functions and it's used when the search button is clicked. 
  * @constructor
  */
 function onClickSearch() {
